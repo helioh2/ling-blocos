@@ -15,7 +15,8 @@ class PainelBotoesFiguras extends PainelBotoes {
         addBotao("Elipse", OpcaoFigura.ELIPSE.toString());
         addBotao("Reta", OpcaoFigura.RETA.toString());
         addBotao("Retângulo", OpcaoFigura.RETANGULO.toString());
-        
+        addBotao("Triangulo", OpcaoFigura.TRIANGULO.toString());
+        addBotao("Selecionar", OpcaoFigura.SELECAO.toString());
     }
 
     @Override

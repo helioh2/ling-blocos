@@ -106,6 +106,14 @@ public class TelaDesenho implements Observer<MouseAdapterFigura>{
     public int getWidth() {
         return tela.getWidth();
     }
+
+    public void desenhaTriangulo(int x, int y, int i, int i0) {
+        Graphics2D g = imagemAtual.createGraphics();
+        g.setColor(Color.BLACK);
+        g.drawString("TRIANGULO", x, y);
+        tela.repaint();
+
+    }
 }
     
     
