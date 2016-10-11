@@ -5,12 +5,12 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.principal;
 
-import br.ufpr.lingblocos.apresentacao.desktop.telablocos.TelaBlocos;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterBlocos;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterFigura;
 import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
 import java.util.Map;
 import javax.swing.JFrame;
+import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 
 
 /**
@@ -35,38 +35,38 @@ public class JanelaPrincipal  {
     
     public JanelaPrincipal(TelaDesenho telaDesenho,
             TelaBlocos telaBlocos, int largura, int altura) {
-        aJanela = new JFrame();
+        aJanela = new JFrame("LingBlocos");
         aJanela.setSize(largura, altura) ;
         
         this.telaDesenho = telaDesenho;
 //        addObserver(telaDesenho);
         telaDesenho.setPai(this);
-        aJanela.add(telaDesenho.getTela());
+        aJanela.getContentPane().add(telaDesenho.getTela());
         telaDesenho.setLocation(0, 0);       
         
         painelBotoesFiguras = new PainelBotoesFiguras(this);
-        aJanela.add(painelBotoesFiguras);
+        aJanela.getContentPane().add(painelBotoesFiguras);
         painelBotoesFiguras.setLocation(10, telaDesenho.getHeight() + 10);
         
         painelBotoesBlocos = new PainelBotoesBlocos(this);
-        aJanela.add(painelBotoesBlocos);
+        aJanela.getContentPane().add(painelBotoesBlocos);
         painelBotoesBlocos.setLocation(telaDesenho.getWidth() + 5, 10);
         
         this.telaBlocos = telaBlocos;
 //        addObserver(telaBlocos);
         telaBlocos.setPai(this);
-        aJanela.add(telaBlocos.getTela());
+        aJanela.getContentPane().add(telaBlocos.getTela());
         telaBlocos.setLocation(telaDesenho.getWidth()+100, 0);
 
         aJanela.setLayout(null);
-       
+        aJanela.pack();
         aJanela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         aJanela.setResizable(true);
-        aJanela.pack();
+        
         aJanela.setLocationRelativeTo(null);
         aJanela.setVisible(true);
         
-        
+         
     }
 
     void setOpcaoFiguraAtual(OpcaoFigura opcao) {

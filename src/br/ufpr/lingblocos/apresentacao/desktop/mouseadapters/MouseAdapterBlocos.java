@@ -5,8 +5,8 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.mouseadapters;
 
-import br.ufpr.lingblocos.apresentacao.desktop.telablocos.TelaBlocos;
-import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
+import br.ufpr.lingblocos.apresentacao.desktop.telablocos.generic.ITelaBlocos;
+import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

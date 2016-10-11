@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ufpr.lingblocos.apresentacao.desktop.principal;
+package br.ufpr.lingblocos.apresentacao.desktop.blocos.generic;
 
 /**
  *
  * @author Helio
  */
-enum OpcaoBloco {
-    MOVA,
-    MUDETAMANHO,
-    GIRE,
-    REPITA;
-
+public interface IBlocoArrastavel {
+    
 }

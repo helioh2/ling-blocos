@@ -1,13 +1,14 @@
 package br.ufpr.lingblocos.apresentacao.desktop.principal;
 
-import br.ufpr.lingblocos.apresentacao.desktop.telablocos.TelaBlocos;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterBlocos;
 import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterElipse;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterFigura;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterGire;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterMova;
+import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterRepita;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterRetangulo;
+import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import java.awt.event.MouseAdapter;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,6 +43,8 @@ public class TesteMain {
        Map<OpcaoBloco,MouseAdapterBlocos> relacaoOpcaoBlocoMouse = new HashMap<>();
        relacaoOpcaoBlocoMouse.put(OpcaoBloco.MOVA, new MouseAdapterMova(telaBlocos));
        relacaoOpcaoBlocoMouse.put(OpcaoBloco.GIRE, new MouseAdapterGire(telaBlocos));
+       relacaoOpcaoBlocoMouse.put(OpcaoBloco.REPITA, new MouseAdapterRepita(telaBlocos));
+       
        janela.setupMouseAdaptersBlocos(relacaoOpcaoBlocoMouse);
        
     
