@@ -22,6 +22,8 @@ public class MouseAdapterRetangulo extends MouseAdapterFigura {
     public void mouseReleased(MouseEvent e) {
         if (pressed) {
             pressed = false;
+            //AQUI É ONDE VOCÊS DEVEM FAZER A LÓGICA SER CHAMADA,
+            //ANTES DE DESENHAR NA TELA
             tela.desenhaRetangulo(x, y, e.getX() - x, e.getY() - y);
         }
     }

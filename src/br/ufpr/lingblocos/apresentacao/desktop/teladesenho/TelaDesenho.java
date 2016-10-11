@@ -33,7 +33,7 @@ public class TelaDesenho implements Observer<MouseAdapterFigura>{
             @Override
             public void paint(Graphics g) {
                 g.drawImage(imagemAtual, 0, 0, null); // Redesenha o que já foi desenhado
-            }}; //consigo sobrescrever métodos sem usar a herança
+            }}; //exemplo de como sobrescrever métodos sem usar a herança
                 //usando definição de classe anônima
 
         tela.setSize(largura, altura);

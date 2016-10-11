@@ -36,7 +36,8 @@ public class JanelaPrincipal  {
     public JanelaPrincipal(TelaDesenho telaDesenho,
             TelaBlocos telaBlocos, int largura, int altura) {
         aJanela = new JFrame("LingBlocos");
-        aJanela.setSize(largura, altura) ;
+        aJanela.setBounds(0,0,largura, altura) ;
+        aJanela.setVisible(true);
         
         this.telaDesenho = telaDesenho;
 //        addObserver(telaDesenho);
@@ -59,12 +60,13 @@ public class JanelaPrincipal  {
         telaBlocos.setLocation(telaDesenho.getWidth()+100, 0);
 
         aJanela.setLayout(null);
-        aJanela.pack();
+        //aJanela.pack();
         aJanela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         aJanela.setResizable(true);
         
         aJanela.setLocationRelativeTo(null);
-        aJanela.setVisible(true);
+        aJanela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
         
          
     }

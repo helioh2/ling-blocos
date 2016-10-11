@@ -7,6 +7,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.util.WrapLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,11 +26,11 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
 
     public BlocoInvolucro() {
 
-        involucro = new JPanel(null);
+        involucro = new JPanel(new FlowLayout());
         //involucro.setOpaque(false);
         involucro.setBackground(Color.GRAY);
         blocos = new ArrayList<>();
-        setMouseAdapter(new ArrastavelAdapter(involucro));
+        //setMouseAdapter(new ArrastavelAdapter(involucro));
 
     }
 
@@ -38,11 +39,11 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
         involucro.setBounds(bloco.getBloco().getX(),
                 bloco.getBloco().getY(),
                 bloco.getWidth(), 
-                            bloco.getHeight());
+                            bloco.getHeight()+5);
         blocos.add(bloco);
         involucro.add(bloco.getBloco());
         bloco.setPai(this);
-        bloco.getBloco().setBounds(0, 0,
+        bloco.getBloco().setBounds(0, 5,
                 bloco.getWidth(), bloco.getHeight());
         
         System.out.println(bloco+" "+bloco.getHeight());
@@ -110,6 +111,10 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
                     bloco.getBloco().getWidth(), bloco.getBloco().getHeight());
         
         
+    }
+
+    public List<BlocoArrastavel> getBlocos() {
+        return blocos;
     }
     
    

@@ -23,7 +23,9 @@ public class MouseAdapterElipse extends MouseAdapterFigura {
     @Override
     public void mouseReleased(MouseEvent e) {
         if (pressed) {
-            pressed = false;
+            pressed = false;          
+            //AQUI É ONDE VOCÊS DEVEM FAZER A LÓGICA SER CHAMADA,
+            //ANTES DE DESENHAR NA TELA
             tela.desenhaElipse(x, y, e.getX() - x, e.getY() - y);
         }}
     

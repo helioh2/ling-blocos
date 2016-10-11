@@ -16,12 +16,12 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 /**
- *
+ * Bloco de comando simples.
  * @author Helio
  */
 public class BlocoSimples implements BlocoArrastavel<JButton> {
     
-    private List<JTextField> campos;
+    private List<JTextField> campos;  //TODO:provavelmente terá que mudar para estruturas que permitam acomodar blocos encaixáveis
     private JButton bloco;
     private BlocoArrastavel pai = null;
 
@@ -37,7 +37,7 @@ public class BlocoSimples implements BlocoArrastavel<JButton> {
         bloco.setText(label);
         bloco.setVerticalAlignment(SwingConstants.TOP);
         
-        setMouseAdapter(new ArrastavelAdapter(bloco));
+        //setMouseAdapter(new ArrastavelAdapter(bloco));
      
     }
     

@@ -14,7 +14,7 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JComponent;
 
 /**
- *
+ * Implementação básica de listener de mouse para blocos drag&drop
  * @author Helio
  */
 public class ArrastavelAdapter implements MouseListener, MouseMotionListener {

@@ -16,7 +16,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 /**
- *
+ * Bloco que agrupa outros blocos para um intuito definido.
+ * Ex: repita, se, ...
  * @author Helio
  */
 public class BlocoEnvolvedor extends BlocoInvolucro {

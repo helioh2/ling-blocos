@@ -24,7 +24,7 @@ public class TesteMain {
     public static void main(String[] args) {
         
        TelaDesenho telaDesenho = new TelaDesenho(700, 500);
-       TelaBlocos telaBlocos = new TelaBlocos(300, 400);
+       TelaBlocos telaBlocos = new TelaBlocos(500, 700);
        //TelaDesenhoController telaController = new TelaDesenhoController(telaDesenho);
        JanelaPrincipal janela = new JanelaPrincipal(telaDesenho, 
                telaBlocos, 800, 600);
