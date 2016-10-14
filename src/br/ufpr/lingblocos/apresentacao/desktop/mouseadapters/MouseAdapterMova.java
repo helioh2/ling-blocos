@@ -24,7 +24,7 @@ public class MouseAdapterMova extends MouseAdapterBlocos {
         
         //AQUI É ONDE VOCÊS DEVEM FAZER A LÓGICA SER CHAMADA,
         //ANTES DE DESENHAR NA TELA
-        tela.addBloco(new BlocoMova(), e.getX(), e.getY());
+        tela.addBloco(new BlocoMova(tela), e.getX(), e.getY());
     }
     
 }

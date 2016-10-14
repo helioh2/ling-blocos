@@ -39,8 +39,6 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos>{
     }
 
     public void addBloco(BlocoArrastavel bloco, int x, int y) {
-        ArrastavelGrudavelAdapter mouseListener = new ArrastavelGrudavelAdapter(bloco, this);
-        bloco.setMouseAdapter(mouseListener);
         blocos.add(bloco);
         tela.add(bloco.getBloco());
         bloco.getBloco().setLocation(x, y);
@@ -49,7 +47,7 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos>{
     public BlocoInvolucro embrulha(BlocoArrastavel bloco){
         int index = blocos.indexOf(bloco);
         tela.remove(bloco.getBloco());
-        BlocoInvolucro blocoNovo = new BlocoInvolucro(bloco);
+        BlocoInvolucro blocoNovo = new BlocoInvolucro(this,bloco);
         blocoNovo.setMouseAdapter(new ArrastavelGrudavelAdapter(blocoNovo, this));
         blocos.set(index, blocoNovo);
         tela.add(blocoNovo.getBloco());

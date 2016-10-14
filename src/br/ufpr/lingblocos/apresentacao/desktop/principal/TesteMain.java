@@ -9,6 +9,7 @@ import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterGire;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterMova;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterRepita;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterRetangulo;
+import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterSoma;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterTriangulo;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import java.awt.event.MouseAdapter;
@@ -47,7 +48,8 @@ public class TesteMain {
        relacaoOpcaoBlocoMouse.put(OpcaoBloco.MOVA, new MouseAdapterMova(telaBlocos));
        relacaoOpcaoBlocoMouse.put(OpcaoBloco.GIRE, new MouseAdapterGire(telaBlocos));
        relacaoOpcaoBlocoMouse.put(OpcaoBloco.REPITA, new MouseAdapterRepita(telaBlocos));
-       relacaoOpcaoBlocoMouse.put(OpcaoBloco.ESPERE, new MouseAdapterEspere(telaBlocos));
+       relacaoOpcaoBlocoMouse.put(OpcaoBloco.ESPERE, new MouseAdapterEspere(telaBlocos));       
+       relacaoOpcaoBlocoMouse.put(OpcaoBloco.SOMA, new MouseAdapterSoma(telaBlocos));
        
        
        janela.setupMouseAdaptersBlocos(relacaoOpcaoBlocoMouse);

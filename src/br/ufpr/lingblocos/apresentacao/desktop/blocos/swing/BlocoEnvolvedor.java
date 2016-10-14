@@ -5,6 +5,7 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
+import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,16 +21,16 @@ import javax.swing.border.LineBorder;
  * Ex: repita, se, ...
  * @author Helio
  */
-public class BlocoEnvolvedor extends BlocoInvolucro {
+public abstract class BlocoEnvolvedor extends BlocoInvolucro {
     
-    private List<JTextField> campos;
-    private JButton cabecalho;
+    
+    protected JButton cabecalho;
 
-    public BlocoEnvolvedor(String label, Color cor) {
-        super();
+    public BlocoEnvolvedor(TelaBlocos tela, String label, Color cor) {
+        super(tela);
                 
         cabecalho = new JButton(label);
-        campos = new ArrayList<>();
+        //campos = new ArrayList<>();
       
         cabecalho.setBorder(new LineBorder(cor, 3));
         cabecalho.setBounds(0, 0, 100, 40);
@@ -38,6 +39,7 @@ public class BlocoEnvolvedor extends BlocoInvolucro {
         cabecalho.setVerticalAlignment(SwingConstants.TOP);
         
         setupInvolucro(cabecalho);
+    
     }
     
     private void setupInvolucro(JButton bloco){
@@ -45,13 +47,6 @@ public class BlocoEnvolvedor extends BlocoInvolucro {
         involucro.add(cabecalho);
     }
 
-    protected final void addCampo(String label, String defaultValue){
-        JTextField campo = new JTextField(defaultValue);
-        campo.setName(label);
-        campos.add(campo);
-        cabecalho.add(campo);
-        campo.setBounds(70+campos.indexOf(campo)*22, 10, 20, 20);
-    }
     
     @Override
     public Iterator<BlocoArrastavel> iterator() {

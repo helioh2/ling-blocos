@@ -21,7 +21,7 @@ public class MouseAdapterRepita extends MouseAdapterBlocos {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        tela.addBloco(new BlocoRepita(), e.getX(), e.getY());
+        tela.addBloco(new BlocoRepita(tela), e.getX(), e.getY());
     }
     
 }

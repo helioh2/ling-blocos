@@ -14,6 +14,7 @@ enum OpcaoBloco {
     MUDETAMANHO,
     GIRE,
     REPITA,
-    ESPERE;
+    ESPERE,
+    SOMA;
 
 }

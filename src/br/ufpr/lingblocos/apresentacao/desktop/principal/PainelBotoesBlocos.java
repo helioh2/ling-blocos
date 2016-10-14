@@ -17,7 +17,8 @@ class PainelBotoesBlocos extends PainelBotoes {
         addBotao("Mova", OpcaoBloco.MOVA.toString());
         addBotao("Gire", OpcaoBloco.GIRE.toString());
         addBotao("Repita", OpcaoBloco.REPITA.toString());
-        addBotao("Espere", OpcaoBloco.ESPERE.toString());
+        addBotao("Espere", OpcaoBloco.ESPERE.toString());        
+        addBotao("Soma", OpcaoBloco.SOMA.toString());
     }
 
     @Override

@@ -5,6 +5,8 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
+import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.util.Transformer;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,16 +21,16 @@ import javax.swing.border.LineBorder;
  * Bloco de comando simples.
  * @author Helio
  */
-public class BlocoSimples implements BlocoArrastavel<JButton> {
+public abstract class BlocoSimples implements BlocoArrastavel<JButton>{
     
-    private List<JTextField> campos;  //TODO:provavelmente terá que mudar para estruturas que permitam acomodar blocos encaixáveis
+    //protected List<Encaixavel> campos;  //TODO:provavelmente terá que mudar para estruturas que permitam acomodar blocos encaixáveis
     private JButton bloco;
     private BlocoArrastavel pai = null;
+    private TelaBlocos tela;
 
-    public BlocoSimples(String label, Color cor) {
-        super();
-        
-        campos = new ArrayList<>();
+    public BlocoSimples(TelaBlocos tela, String label, Color cor) {
+   
+        this.tela = tela;
         bloco = new JButton();
       
         bloco.setBorder(new LineBorder(cor, 3));
@@ -37,18 +39,18 @@ public class BlocoSimples implements BlocoArrastavel<JButton> {
         bloco.setText(label);
         bloco.setVerticalAlignment(SwingConstants.TOP);
         
-        //setMouseAdapter(new ArrastavelAdapter(bloco));
+        setMouseAdapter(new ArrastavelGrudavelAdapter(this,tela));
      
     }
     
     
-     protected final void addCampo(String label, String defaultValue){
-        JTextField campo = new JTextField(defaultValue);
-        campo.setName(label);
-        campos.add(campo);
-        bloco.add(campo);
-        campo.setBounds(70+campos.indexOf(campo)*22, 10, 20, 20);
-    }
+//     protected final void addCampo(String label, String defaultValue, Transformer<String, ?> typeTransformer){
+//         
+//        BlocoCaixaTexto<?> caixa = new BlocoCaixaTexto<>;
+//        campos.add(campo);
+//        bloco.add(campo);
+//        campo.setBounds(70+campos.indexOf(campo)*22, 10, 20, 20);
+//    }
      
     @Override
     public final void setMouseAdapter(ArrastavelAdapter adapter) {

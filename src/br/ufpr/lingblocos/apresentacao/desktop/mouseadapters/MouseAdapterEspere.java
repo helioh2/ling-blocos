@@ -21,7 +21,7 @@ public class MouseAdapterEspere extends MouseAdapterBlocos {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        tela.addBloco(new BlocoEspere(), e.getX(), e.getY());
+        tela.addBloco(new BlocoEspere(tela), e.getX(), e.getY());
     }
     
     
