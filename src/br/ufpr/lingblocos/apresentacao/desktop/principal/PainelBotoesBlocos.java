@@ -2,10 +2,6 @@
 package br.ufpr.lingblocos.apresentacao.desktop.principal;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 
 
 class PainelBotoesBlocos extends PainelBotoes {
