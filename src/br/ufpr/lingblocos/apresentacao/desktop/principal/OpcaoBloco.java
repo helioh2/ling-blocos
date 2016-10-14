@@ -13,6 +13,7 @@ enum OpcaoBloco {
     MOVA,
     MUDETAMANHO,
     GIRE,
-    REPITA;
+    REPITA,
+    ESPERE;
 
 }

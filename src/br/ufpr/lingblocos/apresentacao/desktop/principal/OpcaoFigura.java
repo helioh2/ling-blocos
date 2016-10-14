@@ -13,6 +13,7 @@ enum OpcaoFigura {
     ELIPSE,
     RETANGULO,
     RETA,
+    TRIANGULO,
     LIVRE,
     PONTO,
     SELECAO,
