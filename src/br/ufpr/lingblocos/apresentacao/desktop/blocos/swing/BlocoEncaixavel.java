@@ -7,6 +7,8 @@ package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import java.awt.Color;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -51,17 +53,6 @@ public abstract class BlocoEncaixavel<T> implements BlocoArrastavel<JButton>,Enc
     }
 
     @Override
-    public int getWidth() {
-        return bloco.getWidth();
-    }
-
-    @Override
-    public int getHeight() {
-        return bloco.getWidth();
-
-    }
-
-    @Override
     public JButton getBloco() {
         return bloco;
     }
@@ -95,9 +86,27 @@ public abstract class BlocoEncaixavel<T> implements BlocoArrastavel<JButton>,Enc
     public void setPai(BlocoArrastavel pai) {
         this.pai = pai;
     }
+
+    @Override
+    public Point getLocationTela() {
+        return Encaixavel.super.getLocationTela(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Rectangle getBounds() {
+        return Encaixavel.super.getBounds(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setBounds(Rectangle bounds) {
+        Encaixavel.super.setBounds(bounds); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
     
    
-
+    
   
     
     

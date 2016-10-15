@@ -24,8 +24,7 @@ import javax.swing.border.LineBorder;
  */
 public class BlocoGire extends BlocoSimples implements BlocoComCampos{
 
-    private List<Encaixavel> campos = new ArrayList<>();
-    private List<Encaixavel> camposOriginais = new ArrayList<>();
+    private Campos campos = new Campos(this);
     
     public BlocoGire(TelaBlocos tela) {
         super(tela,"Gire", Color.GREEN);
@@ -36,36 +35,25 @@ public class BlocoGire extends BlocoSimples implements BlocoComCampos{
      @Override
     public void addCampos() {
         BlocoCaixaTexto<Double> caixa = new BlocoCaixaTexto("graus", "90", new DoubleTransformer());
-        getBloco().add(caixa.getCaixa());
-        campos.add(caixa);
-        caixa.setBounds(70+campos.indexOf(caixa)*22, 10, 20, 20);
-        caixa.setPai(this);
-        camposOriginais.addAll(campos);
+        campos.addOriginal(caixa);
+        caixa.setBounds(70, 10, 20, 20);
     }
 
     
 
      @Override
     public Iterator<Encaixavel> getCampos() {
-        return campos.iterator();
+        return campos.getCampos();
     }
     
     @Override
     public void removeCampo(Encaixavel campo) {
-        int index = campos.indexOf(campo);
-        Encaixavel antigo = camposOriginais.get(index);
-        campos.set(index, antigo);
-        getBloco().remove(campo.getBloco());
-        getBloco().add(antigo.getBloco());
-        campo.setPai(null);
+        campos.removeCampo(campo);
     }
 
     @Override
     public void trocaCampo(Encaixavel antigo, Encaixavel novo) {
-        campos.set(campos.indexOf(antigo), novo);
-        novo.setPai(this);
-        getBloco().add(novo.getBloco());
-        getBloco().remove(antigo.getBloco());
+        campos.trocaCampo(antigo, novo);
     }
     
 }

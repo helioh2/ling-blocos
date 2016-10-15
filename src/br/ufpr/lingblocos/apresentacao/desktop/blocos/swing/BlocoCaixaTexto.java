@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.util.Transformer;
+import java.awt.Point;
 import java.awt.PopupMenu;
 import java.awt.Rectangle;
 import javax.swing.JComponent;
@@ -69,9 +70,6 @@ public class BlocoCaixaTexto<T> implements Encaixavel<JTextField,T>{
         return caixa;
     }
 
-  
-
-  
-
+ 
     
 }

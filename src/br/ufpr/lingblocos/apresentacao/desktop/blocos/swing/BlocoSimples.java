@@ -13,7 +13,6 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
@@ -104,10 +103,6 @@ public abstract class BlocoSimples implements BlocoArrastavel<JButton>{
         this.pai = pai;
     }
 
-    @Override
-    public void setBounds(int x, int y, int width, int height) {
-        bloco.setBounds(x, y, width, height);
-    }
     
     
     

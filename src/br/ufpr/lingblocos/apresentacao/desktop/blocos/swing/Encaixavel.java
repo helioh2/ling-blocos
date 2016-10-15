@@ -5,6 +5,7 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
+import java.awt.Point;
 import java.awt.Rectangle;
 import javax.swing.JComponent;
 
@@ -14,11 +15,28 @@ import javax.swing.JComponent;
  */
 interface Encaixavel<T extends JComponent,V> {
     V getValor();
-    Rectangle getBounds();
-    void setBounds(Rectangle bounds);
+    default Rectangle getBounds(){
+        return getBloco().getBounds();
+    }
+    default void setBounds(Rectangle bounds){
+        getBloco().setBounds(bounds);
+    }
 
     void setPai(BlocoArrastavel pai);
     BlocoArrastavel getPai();
     
     T getBloco();
+    
+    default Point getLocationTela(){
+        if (getPai() == null){
+            return getBloco().getLocation();
+        } else {
+            Point locationPai = getPai().getLocationTela();
+            return new Point(
+                    (int)getBloco().getLocation().getX() + (int)locationPai.getX(),
+                    (int)getBloco().getLocation().getY() + (int)locationPai.getY());
+        }
+    }
+
+
 }

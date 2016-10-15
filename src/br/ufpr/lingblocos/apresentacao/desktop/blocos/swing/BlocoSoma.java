@@ -20,8 +20,7 @@ import javax.swing.SwingConstants;
  */
 public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos {
 
-    private List<Encaixavel> campos = new ArrayList<>();
-    private List<Encaixavel> camposOriginais = new ArrayList<>();
+    private Campos campos = new Campos(this);
 
     public BlocoSoma(TelaBlocos tela) {
         super(tela,"+", Color.CYAN);
@@ -33,20 +32,16 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
     public void addCampos() {
         BlocoCaixaTexto<Double> caixa1 = new BlocoCaixaTexto("n1", "0.0", new DoubleTransformer());
         getBloco().add(caixa1.getCaixa());
-        campos.add(caixa1);
-        camposOriginais.add(caixa1);
+        campos.addOriginal(caixa1);       
         caixa1.setBounds(5, 5, 20, 20);
         caixa1.setPai(this);
         
         BlocoCaixaTexto<Double> caixa2 = new BlocoCaixaTexto("n2", "0.0", new DoubleTransformer());
         getBloco().add(caixa2.getCaixa());
-        campos.add(caixa2);
-        camposOriginais.add(caixa2);
+        campos.addOriginal(caixa2);
         caixa2.setBounds(getBloco().getWidth()-25, 5, 20, 20);
         caixa2.setPai(this);
-        
-        camposOriginais.addAll(campos);
-        
+             
     }
 
     @Override
@@ -59,37 +54,20 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
         setBounds(new Rectangle(i, i0, i1, i2));
     }
     
-    @Override
-    public Rectangle getBounds() {
-        return getBloco().getBounds();
-    }
-
-    @Override
-    public void setBounds(Rectangle bounds) {
-        getBloco().setBounds(bounds);
-    }
 
     @Override
     public Iterator<Encaixavel> getCampos() {
-        return campos.iterator();
+        return campos.getCampos();
     }
     
     @Override
     public void removeCampo(Encaixavel campo) {
-        int index = campos.indexOf(campo);
-        Encaixavel antigo = camposOriginais.get(index);
-        campos.set(index, antigo);
-        getBloco().remove(campo.getBloco());
-        getBloco().add(antigo.getBloco());
-        campo.setPai(null);
+        campos.removeCampo(campo);
     }
 
     @Override
     public void trocaCampo(Encaixavel antigo, Encaixavel novo) {
-        campos.set(campos.indexOf(antigo), novo);
-        novo.setPai(this);
-        getBloco().add(novo.getBloco());
-        getBloco().remove(antigo.getBloco());
+        campos.trocaCampo(antigo, novo);
     }
     
     

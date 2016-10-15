@@ -59,6 +59,8 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos>{
         //blocoNovo.setMouseAdapter(new ArrastavelGrudavelAdapter(blocoNovo, this));
         blocos.set(index, blocoNovo);
         tela.add(blocoNovo.getBloco());
+        blocoNovo.getBloco().setLocation(bloco.getBloco().getLocation());
+        bloco.setPai(null);
         tela.repaint();
         return blocoNovo;
     }

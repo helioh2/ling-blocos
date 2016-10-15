@@ -48,32 +48,22 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
             }
         }
 
-        if (saindo(bloco)) {
-            removerDoPainel(bloco, (BlocoInvolucro) bloco.getPai());
-             bloco.getBloco().setLocation(e.getX(), e.getY());
+        if (bloco.saindo()) {
+            removerDoPainel(bloco, (BlocoInvolucro) bloco.getPai());           
         }
+        //tela.getTela().repaint();
 
     }
-    
-    private boolean saindo(BlocoArrastavel bloco){
-        return bloco.getPai() != null
-                && bloco.getBloco().getY() > bloco.getPai().getBloco().getHeight();
-    }
+
 
     private void removerDoPainel(BlocoArrastavel bloco, BlocoInvolucro pai) {
         pai.remove(bloco);
         tela.getTela().add(bloco.getBloco());
-       
-
+        
         if (pai.getBlocos().size() == 1) {
             //tela.getTela().remove(pai.getBloco());
             tela.desembrulha(pai);
-        } else {
-            pai.getBloco().setBounds(pai.getBloco().getX(),
-                    pai.getBloco().getY(),
-                    pai.getBloco().getWidth(),
-                    pai.getBloco().getHeight() - bloco.getHeight());
-        }
+        } 
 
     }
 
@@ -98,6 +88,7 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
     private void trocaPainel(BlocoArrastavel bloco, BlocoInvolucro painel) {
         Iterator<BlocoArrastavel> it = bloco.iterator();
         tela.getTela().remove(bloco.getBloco());
+        blocos.remove(bloco);
         while (it.hasNext()) {
             painel.addBloco(it.next());
         }

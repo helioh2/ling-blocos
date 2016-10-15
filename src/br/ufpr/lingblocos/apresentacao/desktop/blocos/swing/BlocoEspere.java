@@ -8,6 +8,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import br.ufpr.lingblocos.util.DoubleTransformer;
 import java.awt.Color;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,8 +19,7 @@ import java.util.List;
  */
 public class BlocoEspere extends BlocoSimples implements BlocoComCampos{
 
-    private List<Encaixavel> campos = new ArrayList<>();
-    private List<Encaixavel> camposOriginais = new ArrayList<>();
+    private Campos campos = new Campos(this);
     
     public BlocoEspere(TelaBlocos tela) {
         super(tela, "Espere", Color.ORANGE);
@@ -29,40 +29,24 @@ public class BlocoEspere extends BlocoSimples implements BlocoComCampos{
     @Override
     public void addCampos() {
         BlocoCaixaTexto<Double> caixa = new BlocoCaixaTexto("tempo", "0", new DoubleTransformer());
-        getBloco().add(caixa.getCaixa());
-        campos.add(caixa);
-        caixa.setBounds(70+campos.indexOf(caixa)*22, 10, 20, 20);
-        caixa.setPai(this);
-        camposOriginais.addAll(campos);
-        
+        campos.addOriginal(caixa);
+        caixa.setBounds(70, 10, 20, 20);
     }
-
-    
 
      @Override
     public Iterator<Encaixavel> getCampos() {
-        return campos.iterator();
+        return campos.getCampos();
     }
 
     @Override
     public void removeCampo(Encaixavel campo) {
-        int index = campos.indexOf(campo);
-        Encaixavel antigo = camposOriginais.get(index);
-        campos.set(index, antigo);
-        getBloco().remove(campo.getBloco());
-        getBloco().add(antigo.getBloco());
-        campo.setPai(null);
+        campos.removeCampo(campo);
     }
 
     @Override
     public void trocaCampo(Encaixavel antigo, Encaixavel novo) {
-        campos.set(campos.indexOf(antigo), novo);
-        novo.setPai(this);
-        getBloco().add(novo.getBloco());
-        getBloco().remove(antigo.getBloco());
+        campos.trocaCampo(antigo, novo);
     }
-  
-  
-    
+
     
 }

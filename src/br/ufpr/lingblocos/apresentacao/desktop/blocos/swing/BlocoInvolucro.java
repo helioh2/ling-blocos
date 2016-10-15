@@ -25,12 +25,13 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
     protected List<BlocoArrastavel> blocos;
     protected BlocoArrastavel pai = null;
     private TelaBlocos tela;
+    private int maiorWidth;
 
     public BlocoInvolucro(TelaBlocos tela) {
 
         involucro = new JPanel(null);
         //involucro.setOpaque(false);
-        involucro.setBackground(Color.GRAY);
+        involucro.setBackground(Color.darkGray);
         blocos = new ArrayList<>();
         setMouseAdapter(new ArrastavelGrudavelAdapter(this,tela));
 
@@ -47,7 +48,7 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
         bloco.setPai(this);
         bloco.getBloco().setBounds(5, 5,
                 bloco.getWidth(), bloco.getHeight());
-        
+        maiorWidth = bloco.getWidth();
         System.out.println(bloco+" "+bloco.getHeight());
         
     }
@@ -77,7 +78,8 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
     
     public void addBloco(BlocoArrastavel bloco) {
         int alturaAnterior = involucro.getHeight();
-        involucro.setSize(involucro.getWidth(), 
+        atualizaMaiorWidth(bloco.getWidth());
+        involucro.setSize(maiorWidth, 
                             involucro.getHeight()+bloco.getBloco().getHeight());
         blocos.add(bloco);
         involucro.add(bloco.getBloco());
@@ -105,12 +107,28 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
     }
 
     public void remove(BlocoArrastavel bloco) {
+        if(blocos.indexOf(bloco) != blocos.size() - 1){
+            for (int i = blocos.indexOf(bloco); i<blocos.size(); i++){
+                blocos.get(i).getBloco().setLocation(
+                        blocos.get(i).getBloco().getX(), 
+                        blocos.get(i).getBloco().getY() - bloco.getHeight());
+            }
+        }
+        
+        
+        
         blocos.remove(bloco);
+        bloco.getBloco().setLocation(bloco.getLocationTela());
         bloco.setPai(null);
         involucro.remove(bloco.getBloco());
-        bloco.getBloco().setBounds(getBloco().getX()+bloco.getBloco().getX(), 
-                    getBloco().getY()+bloco.getBloco().getY(), 
-                    bloco.getBloco().getWidth(), bloco.getBloco().getHeight());
+        
+        ajustaWidth(bloco.getWidth());
+        
+        involucro.setSize(
+                    maiorWidth,
+                    involucro.getHeight() - bloco.getHeight());
+        
+        
         
         
     }
@@ -118,11 +136,25 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
     public List<BlocoArrastavel> getBlocos() {
         return blocos;
     }
-    
-    @Override
-    public void setBounds(int x, int y, int width, int height) {
-        involucro.setBounds(x, y, width, height);
+
+    private void atualizaMaiorWidth(int width) {
+        maiorWidth = width > maiorWidth ? width : maiorWidth;
     }
     
+    @Override
+    public void ajustaWidth(int width){
+        if (width <= maiorWidth) {
+            maiorWidth = 0;
+            for (BlocoArrastavel b: blocos){
+                atualizaMaiorWidth(b.getWidth());
+            }
+        } else {
+            atualizaMaiorWidth(width);
+        }
+        involucro.setSize(
+                    maiorWidth,
+                    involucro.getHeight());
+    }
+ 
 
 }

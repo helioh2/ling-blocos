@@ -43,7 +43,8 @@ public abstract class BlocoEnvolvedor extends BlocoInvolucro {
     }
     
     private void setupInvolucro(JButton bloco){
-        involucro.setSize(bloco.getWidth() + 5, bloco.getHeight() + 15);       
+        involucro.setSize(bloco.getWidth() + 5, bloco.getHeight() + 15);  
+        involucro.setBackground(Color.lightGray);
         involucro.add(cabecalho);
     }
 
