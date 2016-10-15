@@ -28,7 +28,7 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
 
     public BlocoInvolucro(TelaBlocos tela) {
 
-        involucro = new JPanel(new FlowLayout());
+        involucro = new JPanel(null);
         //involucro.setOpaque(false);
         involucro.setBackground(Color.GRAY);
         blocos = new ArrayList<>();
@@ -45,7 +45,7 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
         blocos.add(bloco);
         involucro.add(bloco.getBloco());
         bloco.setPai(this);
-        bloco.getBloco().setBounds(0, 5,
+        bloco.getBloco().setBounds(5, 5,
                 bloco.getWidth(), bloco.getHeight());
         
         System.out.println(bloco+" "+bloco.getHeight());
@@ -82,7 +82,7 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
         blocos.add(bloco);
         involucro.add(bloco.getBloco());
         bloco.setPai(this);
-        bloco.getBloco().setBounds(0, alturaAnterior, 
+        bloco.getBloco().setBounds(5, alturaAnterior, 
                 bloco.getBloco().getWidth(), 
                 bloco.getBloco().getHeight());
         System.out.println(blocos.get(0)+" "+blocos.get(0).getHeight());

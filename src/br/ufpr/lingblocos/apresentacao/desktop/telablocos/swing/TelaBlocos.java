@@ -33,8 +33,6 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos>{
         tela.setSize(largura, altura);
         tela.setLayout(null);
         tela.setBackground(SystemColor.text);
-        tela.setBounds(0, 0, tela.getWidth(),
-                tela.getHeight());
 
     }
 
@@ -48,7 +46,6 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos>{
         int index = blocos.indexOf(bloco);
         tela.remove(bloco.getBloco());
         BlocoInvolucro blocoNovo = new BlocoInvolucro(this,bloco);
-        blocoNovo.setMouseAdapter(new ArrastavelGrudavelAdapter(blocoNovo, this));
         blocos.set(index, blocoNovo);
         tela.add(blocoNovo.getBloco());
         tela.repaint();
