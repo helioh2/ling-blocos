@@ -65,7 +65,7 @@ public abstract class BlocoSimples implements BlocoArrastavel<JButton>{
 
     @Override
     public int getHeight() {
-        return bloco.getWidth();
+        return bloco.getHeight();
 
     }
 
