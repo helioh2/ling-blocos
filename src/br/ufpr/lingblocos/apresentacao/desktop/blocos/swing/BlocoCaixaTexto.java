@@ -8,17 +8,19 @@ package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 import br.ufpr.lingblocos.util.Transformer;
 import java.awt.PopupMenu;
 import java.awt.Rectangle;
+import javax.swing.JComponent;
 import javax.swing.JTextField;
 
 /**
  *
  * @author helio
  */
-public class BlocoCaixaTexto<T> implements Encaixavel<T>{
+public class BlocoCaixaTexto<T> implements Encaixavel<JTextField,T>{
     
     
     private JTextField caixa;
     private Transformer<String, T> transformer;
+    private BlocoArrastavel pai;
     
     public BlocoCaixaTexto(String label, String init, Transformer<String, T> transformer) {
         caixa = new JTextField(init);
@@ -51,6 +53,25 @@ public class BlocoCaixaTexto<T> implements Encaixavel<T>{
     public void setBounds(Rectangle bounds) {
         caixa.setBounds(bounds);
     }
+
+    @Override
+    public BlocoArrastavel getPai() {
+        return pai;
+    }
+
+    @Override
+    public void setPai(BlocoArrastavel pai) {
+        this.pai = pai;
+    }
+
+    @Override
+    public JTextField getBloco() {
+        return caixa;
+    }
+
+  
+
+  
 
     
 }

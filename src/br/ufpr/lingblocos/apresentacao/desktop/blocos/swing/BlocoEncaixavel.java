@@ -20,7 +20,7 @@ import javax.swing.border.LineBorder;
  * Ex: bloco ">" que retorna boolean, bloco '+' que retorna numero
  * @author helio
  */
-public abstract class BlocoEncaixavel<T> implements BlocoArrastavel<JButton>,Encaixavel<T>{
+public abstract class BlocoEncaixavel<T> implements BlocoArrastavel<JButton>,Encaixavel<JButton,T>{
     
     
     private JButton bloco;

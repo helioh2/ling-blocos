@@ -22,7 +22,7 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
 
     private List<Encaixavel> campos = new ArrayList<>();
     private List<Encaixavel> camposOriginais = new ArrayList<>();
-    
+
     public BlocoSoma(TelaBlocos tela) {
         super(tela,"+", Color.CYAN);
         addCampos();
@@ -36,13 +36,16 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
         campos.add(caixa1);
         camposOriginais.add(caixa1);
         caixa1.setBounds(5, 5, 20, 20);
+        caixa1.setPai(this);
         
         BlocoCaixaTexto<Double> caixa2 = new BlocoCaixaTexto("n2", "0.0", new DoubleTransformer());
         getBloco().add(caixa2.getCaixa());
         campos.add(caixa2);
         camposOriginais.add(caixa2);
         caixa2.setBounds(getBloco().getWidth()-25, 5, 20, 20);
+        caixa2.setPai(this);
         
+        camposOriginais.addAll(campos);
         
     }
 
@@ -51,12 +54,6 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
         //TO-DO (PARTE DA LÓGICA)
         return 0.0;
     }
-
-    @Override
-    public void trocaCampo(Encaixavel antigo, Encaixavel novo) {
-        
-    }
-    
 
     public void setBounds(int i, int i0, int i1, int i2) {
         setBounds(new Rectangle(i, i0, i1, i2));
@@ -76,6 +73,30 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
     public Iterator<Encaixavel> getCampos() {
         return campos.iterator();
     }
+    
+    @Override
+    public void removeCampo(Encaixavel campo) {
+        int index = campos.indexOf(campo);
+        Encaixavel antigo = camposOriginais.get(index);
+        campos.set(index, antigo);
+        getBloco().remove(campo.getBloco());
+        getBloco().add(antigo.getBloco());
+        campo.setPai(null);
+    }
+
+    @Override
+    public void trocaCampo(Encaixavel antigo, Encaixavel novo) {
+        campos.set(campos.indexOf(antigo), novo);
+        novo.setPai(this);
+        getBloco().add(novo.getBloco());
+        getBloco().remove(antigo.getBloco());
+    }
+    
+    
+    
+    
+
+ 
     
     
     

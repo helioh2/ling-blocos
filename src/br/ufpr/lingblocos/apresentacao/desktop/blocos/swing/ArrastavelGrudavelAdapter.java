@@ -44,11 +44,13 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
                     p = tela.embrulha(p);
                 }
                 trocaPainel(bloco, (BlocoInvolucro) p);
+                break;
             }
         }
 
         if (saindo(bloco)) {
             removerDoPainel(bloco, (BlocoInvolucro) bloco.getPai());
+             bloco.getBloco().setLocation(e.getX(), e.getY());
         }
 
     }
@@ -61,6 +63,7 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
     private void removerDoPainel(BlocoArrastavel bloco, BlocoInvolucro pai) {
         pai.remove(bloco);
         tela.getTela().add(bloco.getBloco());
+       
 
         if (pai.getBlocos().size() == 1) {
             //tela.getTela().remove(pai.getBloco());

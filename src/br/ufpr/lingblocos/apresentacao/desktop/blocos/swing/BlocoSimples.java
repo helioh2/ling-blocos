@@ -103,5 +103,12 @@ public abstract class BlocoSimples implements BlocoArrastavel<JButton>{
     public void setPai(BlocoArrastavel pai) {
         this.pai = pai;
     }
+
+    @Override
+    public void setBounds(int x, int y, int width, int height) {
+        bloco.setBounds(x, y, width, height);
+    }
+    
+    
     
 }

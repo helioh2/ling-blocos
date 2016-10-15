@@ -21,7 +21,8 @@ import javax.swing.border.LineBorder;
  */
 public class BlocoMova extends BlocoSimples implements BlocoComCampos{
 
-    private List<Encaixavel> campos = new ArrayList<>();
+    private List<Encaixavel> campos = new ArrayList<>();    
+    private List<Encaixavel> camposOriginais = new ArrayList<>();
 
     public BlocoMova(TelaBlocos tela) {
         super(tela,"Mova", Color.BLUE);
@@ -35,11 +36,34 @@ public class BlocoMova extends BlocoSimples implements BlocoComCampos{
         getBloco().add(caixa.getCaixa());
         campos.add(caixa);
         caixa.setBounds(70+campos.indexOf(caixa)*22, 10, 20, 20);
+        caixa.setPai(this);
+        camposOriginais.addAll(campos);
+        
+    }
+
+    @Override
+    public void removeCampo(Encaixavel campo) {
+        int index = campos.indexOf(campo);
+        Encaixavel antigo = camposOriginais.get(index);
+        campos.set(index, antigo);
+        getBloco().remove(campo.getBloco());
+        getBloco().add(antigo.getBloco());
+        campo.setPai(null);
+        getBloco().setSize(getBloco().getWidth()-campo.getBloco().getWidth(),                
+                getBloco().getHeight());
     }
 
     @Override
     public void trocaCampo(Encaixavel antigo, Encaixavel novo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        campos.set(campos.indexOf(antigo), novo);
+        novo.setPai(this);
+        getBloco().remove(antigo.getBloco());
+        getBloco().add(novo.getBloco());   
+        
+        getBloco().setSize(getBloco().getWidth()+novo.getBloco().getWidth(),                
+                getBloco().getHeight());
+        novo.getBloco().setLocation(antigo.getBloco().getLocation());
+        
     }
     
      @Override

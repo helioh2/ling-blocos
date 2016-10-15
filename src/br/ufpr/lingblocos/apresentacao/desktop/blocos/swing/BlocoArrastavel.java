@@ -39,6 +39,8 @@ public interface BlocoArrastavel<T extends JComponent>
     
     void setPai(BlocoArrastavel pai);
 
+    public void setBounds(int x, int y, int width, int height);
+
     
 
 }

@@ -119,7 +119,10 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
         return blocos;
     }
     
-   
+    @Override
+    public void setBounds(int x, int y, int width, int height) {
+        involucro.setBounds(x, y, width, height);
+    }
     
 
 }

@@ -15,6 +15,7 @@ public interface BlocoComCampos {
     
     void addCampos();
     void trocaCampo(Encaixavel antigo, Encaixavel novo);
+    void removeCampo(Encaixavel campo);
 
     public Iterator<Encaixavel> getCampos();
 }

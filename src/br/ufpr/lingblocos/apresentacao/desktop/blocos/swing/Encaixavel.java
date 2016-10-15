@@ -6,13 +6,19 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import java.awt.Rectangle;
+import javax.swing.JComponent;
 
 /**
  *
  * @author helio
  */
-interface Encaixavel<T> {
-    T getValor();
+interface Encaixavel<T extends JComponent,V> {
+    V getValor();
     Rectangle getBounds();
     void setBounds(Rectangle bounds);
+
+    void setPai(BlocoArrastavel pai);
+    BlocoArrastavel getPai();
+    
+    T getBloco();
 }
