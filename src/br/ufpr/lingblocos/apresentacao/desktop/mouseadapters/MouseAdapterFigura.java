@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.mouseadapters;
 
 import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
+import br.ufpr.lingblocos.logicapalco.Palco;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -19,9 +20,11 @@ public abstract class MouseAdapterFigura extends MouseAdapter {
     protected int x;
     protected int y;
     protected TelaDesenho tela;
+    protected Palco palco;
 
-    public MouseAdapterFigura(TelaDesenho telaDesenho) {
+    public MouseAdapterFigura(TelaDesenho telaDesenho, Palco palco) {
         this.tela = telaDesenho;
+        this.palco = palco;
     }
 
     @Override

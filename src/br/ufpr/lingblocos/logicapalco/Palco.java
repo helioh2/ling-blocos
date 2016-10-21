@@ -5,14 +5,30 @@
  */
 package br.ufpr.lingblocos.logicapalco;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author Lenovo
  */
 public class Palco {
-
+    
+    private List<Ator> atores = new LinkedList();
+    
     public void selecionarAtor(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(x +" " +y);
+    }
+
+    public void inserirAtor(Ator ator) {
+        atores.add(ator);
+        desenhar();
+    }
+
+    private void desenhar() {
+        for (Ator a: atores) {
+            a.desenhar();
+        }
     }
     
 }

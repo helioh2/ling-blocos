@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.mouseadapters;
 
 import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
+import br.ufpr.lingblocos.logicapalco.Palco;
 import java.awt.event.MouseEvent;
 
 /**
@@ -14,8 +15,8 @@ import java.awt.event.MouseEvent;
  */
 public class MouseAdapterTriangulo extends MouseAdapterFigura {
 
-    public MouseAdapterTriangulo(TelaDesenho telaDesenho) {
-        super(telaDesenho);
+    public MouseAdapterTriangulo(TelaDesenho telaDesenho, Palco palco) {
+        super(telaDesenho, palco);
     }
 
     @Override

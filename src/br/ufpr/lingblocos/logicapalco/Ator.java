@@ -9,6 +9,15 @@ package br.ufpr.lingblocos.logicapalco;
  *
  * @author Lenovo
  */
-public class Ator {
+public abstract class Ator {
+    private int x;
+    private int y;
+
+    public Ator(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    abstract void desenhar();
     
 }

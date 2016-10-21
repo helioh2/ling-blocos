@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.mouseadapters;
 
 import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
+import br.ufpr.lingblocos.logicapalco.Palco;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -15,8 +16,8 @@ import java.awt.event.MouseEvent;
  */
 public class MouseAdapterElipse extends MouseAdapterFigura {
 
-    public MouseAdapterElipse(TelaDesenho telaDesenho) {
-        super(telaDesenho);
+    public MouseAdapterElipse(TelaDesenho telaDesenho, Palco palco) {
+        super(telaDesenho, palco);
     }
 
  

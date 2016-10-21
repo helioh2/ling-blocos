@@ -9,7 +9,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.principal;
  *
  * @author Helio
  */
-enum OpcaoFigura {
+public enum OpcaoFigura {
     ELIPSE,
     RETANGULO,
     RETA,

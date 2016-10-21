@@ -15,11 +15,11 @@ import java.awt.event.MouseEvent;
  */
 public class MouseAdapterSeleciona extends MouseAdapterFigura{
 
-    private Palco palco;
+
 
     public MouseAdapterSeleciona(TelaDesenho telaDesenho, Palco palco) {
-        super(telaDesenho);
-        this.palco=palco;
+        super(telaDesenho, palco);
+
         
     }
     @Override

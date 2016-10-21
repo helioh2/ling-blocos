@@ -9,7 +9,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.principal;
  *
  * @author Helio
  */
-enum OpcaoBloco {
+public enum OpcaoBloco {
     MOVA,
     MUDETAMANHO,
     GIRE,

@@ -9,6 +9,18 @@ package br.ufpr.lingblocos.logicapalco;
  *
  * @author Lenovo
  */
-public class Retangulo {
+public class Retangulo extends Ator {
+    private int largura;
+    private int altura;
+    public Retangulo(int x, int y, int largura, int altura) {
+        super(x, y);
+        this.largura=largura;
+        this.altura=altura;
+    }
+
+    @Override
+    void desenhar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
