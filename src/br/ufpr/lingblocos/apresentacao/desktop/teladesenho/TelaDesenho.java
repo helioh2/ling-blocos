@@ -36,16 +36,16 @@ public class TelaDesenho implements Observer<MouseAdapterFigura>{
             }}; //exemplo de como sobrescrever métodos sem usar a herança
                 //usando definição de classe anônima
 
-        tela.setSize(largura, altura);
+        //tela.setSize(largura, altura);
         tela.setLayout(null);
         tela.setBackground(SystemColor.text);
-        tela.setBounds(0, 0, tela.getWidth(), 
-                tela.getHeight());
+        tela.setBounds(0, 0, largura, 
+                altura);
         imagemAtual = new BufferedImage(largura, 
                 altura, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = imagemAtual.createGraphics();
         g.setColor(Color.WHITE);
-        g.fillRect(0, 0, tela.getWidth(), tela.getHeight());
+        g.fillRect(0, 0,largura, altura);
     }
 
     public void setPai(JanelaPrincipal pai) {

@@ -12,6 +12,7 @@ import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterRetangu
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterSoma;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterTriangulo;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicapalco.Palco;
 import java.awt.event.MouseAdapter;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,20 +27,21 @@ public class TesteMain {
      */
     public static void main(String[] args) {
         
-       TelaDesenho telaDesenho = new TelaDesenho(700, 500);
+       TelaDesenho telaDesenho = new TelaDesenho(500, 500);
        TelaBlocos telaBlocos = new TelaBlocos(500, 700);
        //TelaDesenhoController telaController = new TelaDesenhoController(telaDesenho);
        JanelaPrincipal janela = new JanelaPrincipal(telaDesenho, 
-               telaBlocos, 800, 600);
-
+               telaBlocos, 1200, 800);
+       Palco palco = new Palco();
+       
        //Adicionando relação de opções de figuras com mouse listeners:
        // (vocês terão que ir adicionando à medida que novas figuras 
        // são possíveis de serem desenhadas)
        Map<OpcaoFigura,MouseAdapterFigura> relacaoOpcaoFiguraMouse = new HashMap<>();
-       relacaoOpcaoFiguraMouse.put(OpcaoFigura.RETANGULO, new MouseAdapterRetangulo(telaDesenho));
-       relacaoOpcaoFiguraMouse.put(OpcaoFigura.ELIPSE, new MouseAdapterElipse(telaDesenho));
-       relacaoOpcaoFiguraMouse.put(OpcaoFigura.TRIANGULO, new MouseAdapterTriangulo(telaDesenho));
-       janela.setupMouseAdaptersFigura(relacaoOpcaoFiguraMouse);
+       relacaoOpcaoFiguraMouse.put(OpcaoFigura.RETANGULO, new MouseAdapterRetangulo(telaDesenho, palco));
+       relacaoOpcaoFiguraMouse.put(OpcaoFigura.ELIPSE, new MouseAdapterElipse(telaDesenho, palco));
+       relacaoOpcaoFiguraMouse.put(OpcaoFigura.TRIANGULO, new MouseAdapterTriangulo(telaDesenho, palco));
+       janela.setupMouseAdaptersFigura(relacaoOpcaoFiguraMouse);janela.setupMouseAdaptersFigura(relacaoOpcaoFiguraMouse);
        
        //Adicionando relação de opções de blocos com mouse listeners:
        // (vocês terão que ir adicionando à medida que novos blocos 

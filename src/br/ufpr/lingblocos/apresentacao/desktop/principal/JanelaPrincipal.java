@@ -11,6 +11,7 @@ import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
 import java.util.Map;
 import javax.swing.JFrame;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import java.awt.Dimension;
 
 
 /**
@@ -36,37 +37,39 @@ public class JanelaPrincipal  {
     public JanelaPrincipal(TelaDesenho telaDesenho,
             TelaBlocos telaBlocos, int largura, int altura) {
         aJanela = new JFrame("LingBlocos");
-        aJanela.setBounds(0,0,largura, altura) ;
-        aJanela.setVisible(true);
+        aJanela.setSize(new Dimension(largura, altura) );
+        
         
         this.telaDesenho = telaDesenho;
 //        addObserver(telaDesenho);
         telaDesenho.setPai(this);
-        aJanela.getContentPane().add(telaDesenho.getTela());
+        aJanela.add(telaDesenho.getTela());       
         telaDesenho.setLocation(0, 0);       
         
         painelBotoesFiguras = new PainelBotoesFiguras(this);
-        aJanela.getContentPane().add(painelBotoesFiguras);
+        aJanela.add(painelBotoesFiguras);
         painelBotoesFiguras.setLocation(10, telaDesenho.getHeight() + 10);
         
         painelBotoesBlocos = new PainelBotoesBlocos(this);
-        aJanela.getContentPane().add(painelBotoesBlocos);
+        aJanela.add(painelBotoesBlocos);
         painelBotoesBlocos.setLocation(telaDesenho.getWidth() + 5, 10);
         
         this.telaBlocos = telaBlocos;
 //        addObserver(telaBlocos);
         telaBlocos.setPai(this);
-        aJanela.getContentPane().add(telaBlocos.getTela());
+        aJanela.add(telaBlocos.getTela());
         telaBlocos.setLocation(telaDesenho.getWidth()+100, 0);
 
+        
         aJanela.setLayout(null);
-        //aJanela.pack();
+        
         aJanela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         aJanela.setResizable(true);
+        //aJanela.pack();
         
         aJanela.setLocationRelativeTo(null);
         aJanela.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
+        aJanela.setVisible(true);
         
          
     }
