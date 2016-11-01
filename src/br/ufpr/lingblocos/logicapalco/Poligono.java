@@ -11,4 +11,5 @@ package br.ufpr.lingblocos.logicapalco;
  */
 public class Poligono {
     
+    private int lados;
 }
