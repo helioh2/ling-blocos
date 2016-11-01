@@ -5,10 +5,24 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author helio
  */
 public class Painel {
+    private Ator ator;
+    private List<Bloco> blocos = new LinkedList<>();
+    
+    public Painel(Ator ator) {
+        this.ator = ator;
+    }
+    public void inserirBloco(Bloco bloco){
+       blocos.add(bloco);
+    }
+    
     
 }

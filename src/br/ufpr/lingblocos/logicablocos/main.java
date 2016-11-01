@@ -21,6 +21,7 @@ import br.ufpr.lingblocos.apresentacao.desktop.principal.JanelaPrincipal;
 import br.ufpr.lingblocos.apresentacao.desktop.principal.OpcaoBloco;
 import br.ufpr.lingblocos.apresentacao.desktop.principal.OpcaoFigura;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicapalco.Ator;
 import br.ufpr.lingblocos.logicapalco.Palco;
 import java.awt.event.MouseAdapter;
 import java.util.HashMap;
@@ -41,7 +42,16 @@ public class main {
        //TelaDesenhoController telaController = new TelaDesenhoController(telaDesenho);
        JanelaPrincipal janela = new JanelaPrincipal(telaDesenho, 
                telaBlocos, 800, 600);
-        Painel painel = new Painel();
+        Ator ator = new Ator(10,10){
+           @Override
+           public void desenhar() {
+               System.out.println(".desenhar"+ x + " " + y );
+                       
+           }
+            
+        };
+        Painel painel = new Painel(ator);
+        painel.inserirBloco(new BlocoSimples());
         Palco palco = new Palco();
        
        //Adicionando relação de opções de figuras com mouse listeners:

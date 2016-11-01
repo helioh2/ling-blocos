@@ -9,6 +9,6 @@ package br.ufpr.lingblocos.logicablocos;
  *
  * @author helio
  */
-public class BlocoExecutavel {
+public interface BlocoExecutavel extends Bloco{
     
 }

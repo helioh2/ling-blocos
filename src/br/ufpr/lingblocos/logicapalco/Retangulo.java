@@ -19,7 +19,7 @@ public class Retangulo extends Ator {
     }
 
     @Override
-    void desenhar() {
+    public void desenhar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -9,6 +9,9 @@ package br.ufpr.lingblocos.logicablocos;
  *
  * @author helio
  */
-public class BlocoSimples {
-    
+public class BlocoSimples implements BlocoExecutavel {
+
+    public BlocoSimples() {
+    }
+     
 }
