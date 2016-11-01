@@ -26,6 +26,8 @@ public class TesteMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       
+       //MUDEI ALGUMA COISA
         
        TelaDesenho telaDesenho = new TelaDesenho(500, 500);
        TelaBlocos telaBlocos = new TelaBlocos(500, 700);
