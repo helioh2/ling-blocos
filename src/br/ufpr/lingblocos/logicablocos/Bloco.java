@@ -11,4 +11,6 @@ package br.ufpr.lingblocos.logicablocos;
  */
 public interface Bloco {
     
+    
+    
 }

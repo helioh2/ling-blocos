@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.DoubleTransformer;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -23,8 +24,9 @@ public class BlocoMova extends BlocoSimples implements BlocoComCampos{
 
     private Campos campos = new Campos(this);
 
-    public BlocoMova(TelaBlocos tela) {
-        super(tela,"Mova", Color.BLUE);
+    public BlocoMova(TelaBlocos tela, Bloco blocoLogica) {
+        super(tela,"Mova", Color.BLUE, blocoLogica );
+        
         addCampos();
         
     }

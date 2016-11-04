@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.WrapLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -26,19 +27,26 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
     protected BlocoArrastavel pai = null;
     private TelaBlocos tela;
     private int maiorWidth;
+    protected Bloco blocoLogica;
 
-    public BlocoInvolucro(TelaBlocos tela) {
+    
+    public BlocoInvolucro(TelaBlocos tela, Bloco blocoLogica) {
 
         involucro = new JPanel(null);
         //involucro.setOpaque(false);
         involucro.setBackground(Color.darkGray);
         blocos = new ArrayList<>();
         setMouseAdapter(new ArrastavelGrudavelAdapter(this,tela));
-
+        this.blocoLogica = blocoLogica;
     }
-
-    public BlocoInvolucro(TelaBlocos tela, BlocoArrastavel bloco) {
-        this(tela);
+    
+    @Override
+    public Bloco getBlocoLogica() {
+        return blocoLogica;
+    }
+    
+    public BlocoInvolucro(TelaBlocos tela, BlocoArrastavel bloco, Bloco blocoLogica) {
+        this(tela, blocoLogica);
         involucro.setBounds(bloco.getBloco().getX(),
                 bloco.getBloco().getY(),
                 bloco.getWidth(), 

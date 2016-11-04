@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.DoubleTransformer;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -26,8 +27,8 @@ public class BlocoGire extends BlocoSimples implements BlocoComCampos{
 
     private Campos campos = new Campos(this);
     
-    public BlocoGire(TelaBlocos tela) {
-        super(tela,"Gire", Color.GREEN);
+    public BlocoGire(TelaBlocos tela, Bloco blocoLogica) {
+        super(tela,"Gire", Color.GREEN, blocoLogica);
         addCampos();
  
     }

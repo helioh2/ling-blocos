@@ -43,7 +43,7 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
                 if (!(p instanceof BlocoInvolucro)) {
                     p = tela.embrulha(p);
                 }
-                trocaPainel(bloco, (BlocoInvolucro) p);
+                tela.trocaPainel(bloco, (BlocoInvolucro) p);
                 break;
             }
         }
@@ -85,13 +85,6 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
         return colisaoBaixo && colisaoCima && colisaoDireita && colisaoEsquerda;
     }
 
-    private void trocaPainel(BlocoArrastavel bloco, BlocoInvolucro painel) {
-        Iterator<BlocoArrastavel> it = bloco.iterator();
-        tela.getTela().remove(bloco.getBloco());
-        blocos.remove(bloco);
-        while (it.hasNext()) {
-            painel.addBloco(it.next());
-        }
-    }
+
 
 }

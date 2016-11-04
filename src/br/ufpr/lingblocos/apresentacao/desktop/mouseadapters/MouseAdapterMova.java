@@ -14,6 +14,8 @@ import java.awt.event.MouseEvent;
  * @author Helio
  */
 public class MouseAdapterMova extends MouseAdapterBlocos {
+    
+    
 
     public MouseAdapterMova(TelaBlocos telaBlocos) {
         super(telaBlocos);
@@ -22,8 +24,12 @@ public class MouseAdapterMova extends MouseAdapterBlocos {
     @Override
     public void mouseClicked(MouseEvent e) {
         
+        painel.inserirBloco(new br.ufpr.lingblocos.logicablocos.BlocoMova());
+        
+       
         //AQUI É ONDE VOCÊS DEVEM FAZER A LÓGICA SER CHAMADA,
         //ANTES DE DESENHAR NA TELA
+        
         tela.addBloco(new BlocoMova(tela), e.getX(), e.getY());
     }
     

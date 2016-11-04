@@ -5,20 +5,15 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
-import java.util.List;
-
 /**
  *
  * @author helio
  */
-public abstract class BlocoSimples extends BlocoExecutavel {
-    
-    
-    protected List<Campo> campos;
-   
+public class BlocoEspere extends BlocoSimples{
 
-    public BlocoSimples() {
+    @Override
+    public void executar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
     
 }

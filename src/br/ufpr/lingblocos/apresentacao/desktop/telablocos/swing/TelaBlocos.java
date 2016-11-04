@@ -10,12 +10,14 @@ import br.ufpr.lingblocos.apresentacao.desktop.blocos.swing.BlocoArrastavel;
 import br.ufpr.lingblocos.apresentacao.desktop.blocos.swing.BlocoInvolucro;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterBlocos;
 import br.ufpr.lingblocos.apresentacao.desktop.principal.JanelaPrincipal;
+import br.ufpr.lingblocos.logicablocos.Painel;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 import br.ufpr.lingblocos.util.Observer;
+import java.util.Iterator;
 
 /**
  *
@@ -49,7 +51,20 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos>{
         blocos.set(index, blocoNovo);
         tela.add(blocoNovo.getBloco());
         tela.repaint();
+        
+        //painel.encaixar
+        
         return blocoNovo;
+    }
+    
+        public void trocaPainel(BlocoArrastavel bloco, BlocoInvolucro bloco2) {
+        Iterator<BlocoArrastavel> it = bloco.iterator();
+        this.getTela().remove(bloco.getBloco());
+        blocos.remove(bloco);
+        while (it.hasNext()) {
+            bloco2.addBloco(it.next());
+        }
+        painel.juntarBlocos();
     }
     
     public BlocoArrastavel desembrulha(BlocoInvolucro bloco){

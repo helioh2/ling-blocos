@@ -51,7 +51,7 @@ public class main {
             
         };
         Painel painel = new Painel(ator);
-        painel.inserirBloco(new BlocoSimples());
+        painel.inserirBloco(new BlocoMova());
         Palco palco = new Palco();
        
        //Adicionando relação de opções de figuras com mouse listeners:

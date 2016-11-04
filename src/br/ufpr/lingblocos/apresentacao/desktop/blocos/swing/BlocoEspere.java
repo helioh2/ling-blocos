@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.DoubleTransformer;
 import java.awt.Color;
 import java.awt.Point;
@@ -21,8 +22,8 @@ public class BlocoEspere extends BlocoSimples implements BlocoComCampos{
 
     private Campos campos = new Campos(this);
     
-    public BlocoEspere(TelaBlocos tela) {
-        super(tela, "Espere", Color.ORANGE);
+    public BlocoEspere(TelaBlocos tela, Bloco blocoLogica) {
+        super(tela, "Espere", Color.ORANGE, blocoLogica);
         addCampos();
     }
 

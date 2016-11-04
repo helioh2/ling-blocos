@@ -7,6 +7,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 
 import br.ufpr.lingblocos.apresentacao.desktop.blocos.generic.IBlocoArrastavel;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.WrapLayout;
 import java.awt.Point;
 import java.awt.PopupMenu;
@@ -30,6 +31,8 @@ public interface BlocoArrastavel<T extends JComponent>
         extends Iterable<BlocoArrastavel> {
   
     void setMouseAdapter(ArrastavelAdapter adapter);
+    
+    Bloco getBlocoLogica();
 
     default int getWidth(){
         return getBloco().getWidth();

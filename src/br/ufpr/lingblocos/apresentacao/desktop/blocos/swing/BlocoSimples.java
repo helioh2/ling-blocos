@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.Transformer;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -26,8 +27,9 @@ public abstract class BlocoSimples implements BlocoArrastavel<JButton>{
     private JButton bloco;
     private BlocoArrastavel pai = null;
     private TelaBlocos tela;
+    protected Bloco blocoLogica;
 
-    public BlocoSimples(TelaBlocos tela, String label, Color cor) {
+    public BlocoSimples(TelaBlocos tela, String label, Color cor, Bloco blocoLogica) {
    
         this.tela = tela;
         bloco = new JButton();
@@ -37,10 +39,16 @@ public abstract class BlocoSimples implements BlocoArrastavel<JButton>{
         bloco.setOpaque(true);
         bloco.setText(label);
         bloco.setVerticalAlignment(SwingConstants.TOP);
-        
+        this.blocoLogica= blocoLogica;
         setMouseAdapter(new ArrastavelGrudavelAdapter(this,tela));
      
     }
+
+    @Override
+    public Bloco getBlocoLogica() {
+        return blocoLogica;
+    }
+    
     
     
 //     protected final void addCampo(String label, String defaultValue, Transformer<String, ?> typeTransformer){

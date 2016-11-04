@@ -5,10 +5,16 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
+
 /**
  *
  * @author helio
  */
-public interface BlocoExecutavel extends Bloco{
+public abstract class BlocoExecutavel implements Bloco{
+    
+   protected Ator ator;
+    
+   public abstract void executar();
     
 }
