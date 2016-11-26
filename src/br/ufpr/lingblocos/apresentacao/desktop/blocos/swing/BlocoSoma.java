@@ -14,12 +14,9 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.SwingConstants;
 
-/**
- *
- * @author helio
- */
-public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos {
 
+public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos {
+    
     private Campos campos = new Campos(this);
 
     public BlocoSoma(TelaBlocos tela) {

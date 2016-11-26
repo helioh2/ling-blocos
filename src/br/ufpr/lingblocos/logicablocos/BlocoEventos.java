@@ -5,10 +5,20 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ponto;
+import java.util.List;
+
 /**
  *
  * @author helio
  */
-public class BlocoEventos {
+public class BlocoEventos extends BlocoExecutavel{
+    
+    private List<Campo> campos;
+
+    @Override
+    public void executar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

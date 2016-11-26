@@ -9,22 +9,17 @@ package br.ufpr.lingblocos.logicapalco;
  *
  * @author Lenovo
  */
-public class Retangulo extends Ator {
+public class LinhaReta extends Ator {
     
     private Desenhador desenhador;
-    
-    private int largura;
-    private int altura;
-    
-    public Retangulo(int x, int y, int largura, int altura) {
+
+    public LinhaReta(int x, int y) {
         super(x, y);
-        this.largura=largura;
-        this.altura=altura;
     }
 
     @Override
     public void desenhar() {
-        desenhador.desenhaRetangulo();
+        desenhador.desenhaLinhaReta();
     }
 
     @Override

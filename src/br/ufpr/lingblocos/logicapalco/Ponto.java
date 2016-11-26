@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ufpr.lingblocos.logicablocos;
+package br.ufpr.lingblocos.logicapalco;
 
-import java.util.List;
-
-public class BlocoEncaixavel implements Bloco{
+/**
+ *
+ * @author cassiele
+ */
+public class Ponto {
     
-    protected List<BlocoExecutavel> blocoExe;
+    private int x;
+    private int y;
     
     
 }

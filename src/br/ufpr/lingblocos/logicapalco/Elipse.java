@@ -9,6 +9,22 @@ package br.ufpr.lingblocos.logicapalco;
  *
  * @author Lenovo
  */
-public class Elipse {
+public class Elipse extends Ator{
+
+    private Desenhador desenhador;
+            
+    public Elipse(int x, int y) {
+        super(x, y);
+    }
+
+    @Override
+    public void desenhar() {
+        desenhador.desenhaElipse();
+    }
+
+    @Override
+    public void dentro(int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -3,21 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ufpr.lingblocos.logicablocos;
+package br.ufpr.lingblocos.logicapalco;
 
 import java.util.List;
 
 /**
  *
- * @author helio
+ * @author cassiele
  */
-public class BlocoEnvolvedor extends BlocoExecutavel {
+public class LinhaLivre extends Ator {
     
-    protected List<BlocoExecutavel> blocoExe;
+    private Desenhador desenhador;
+
+    private List<Ponto> ponto;  
+
+    public LinhaLivre(int x, int y) {
+        super(x, y);
+    }
 
     @Override
-    public void executar() {
+    public void desenhar() {
+        desenhador.desenhaLinhaLivre();
+    }
+
+    @Override
+    public void dentro(int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+
+
 }

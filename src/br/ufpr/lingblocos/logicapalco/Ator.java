@@ -12,6 +12,7 @@ package br.ufpr.lingblocos.logicapalco;
 public abstract class Ator {
     protected int x;
     protected int y;
+    protected Desenhador desenhador;
 
     public Ator(int x, int y) {
         this.x = x;
@@ -19,5 +20,7 @@ public abstract class Ator {
     }
 
     public abstract void desenhar();
+    public abstract void dentro(int x, int y);
+    
     
 }

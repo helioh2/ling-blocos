@@ -9,6 +9,6 @@ package br.ufpr.lingblocos.logicablocos;
  *
  * @author helio
  */
-public class Campo {
+public class Campo extends BlocoEncaixavel {
     
 }

@@ -9,8 +9,24 @@ package br.ufpr.lingblocos.logicapalco;
  *
  * @author Lenovo
  */
-public class Poligono {
+public class Poligono extends Ator{
+    
+    private Desenhador desenhador;
     
     private int lados;
     private int tamLados;
+
+    public Poligono(int x, int y) {
+        super(x, y);
+    }
+
+    @Override
+    public void desenhar() {
+        desenhador.desenhaPoligono();
+    }
+
+    @Override
+    public void dentro(int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5,10 +5,16 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
-/**
- *
- * @author helio
- */
-public class BlocoComposto {
+import java.util.List;
+
+
+public class BlocoComposto extends BlocoExecutavel {
+    
+    protected List<BlocoExecutavel> blocoExe;
+
+    @Override
+    public void executar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

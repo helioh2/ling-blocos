@@ -48,6 +48,11 @@ public class main {
                System.out.println(".desenhar"+ x + " " + y );
                        
            }
+
+           @Override
+           public void dentro(int x, int y) {
+               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           }
             
         };
         Painel painel = new Painel(ator);

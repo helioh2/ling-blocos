@@ -5,10 +5,35 @@
  */
 package br.ufpr.lingblocos.logicapalco;
 
-/**
- *
- * @author Lenovo
- */
-public class Desenhador {
+
+public interface Desenhador {
+    
+    public void desenhaElipse();
+    
+    public void desenhaEstrela();
+    
+    public void desenhaImagem();
+    
+    public void desenhaLinhaLivre();
+    
+    public void desenhaLinhaReta();
+    
+    public void desenhaPoligono();
+    
+    public void desenhaRetangulo();
+    
+    public void desenhaTriangulo();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

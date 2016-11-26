@@ -13,7 +13,6 @@ import java.util.List;
  */
 public abstract class BlocoSimples extends BlocoExecutavel {
     
-    
     protected List<Campo> campos;
    
 
