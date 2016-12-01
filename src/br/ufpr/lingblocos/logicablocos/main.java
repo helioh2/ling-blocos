@@ -22,6 +22,8 @@ import br.ufpr.lingblocos.apresentacao.desktop.principal.OpcaoBloco;
 import br.ufpr.lingblocos.apresentacao.desktop.principal.OpcaoFigura;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import br.ufpr.lingblocos.logicapalco.Ator;
+import br.ufpr.lingblocos.logicapalco.Desenhador;
+import br.ufpr.lingblocos.logicapalco.DesenhadorAWT;
 import br.ufpr.lingblocos.logicapalco.Palco;
 import java.awt.event.MouseAdapter;
 import java.util.HashMap;
@@ -57,7 +59,8 @@ public class main {
         };
         Painel painel = new Painel(ator);
         painel.inserirBloco(new BlocoMova());
-        Palco palco = new Palco();
+                Desenhador desenhador = new DesenhadorAWT();
+        Palco palco = new Palco(desenhador);
        
        //Adicionando relação de opções de figuras com mouse listeners:
        // (vocês terão que ir adicionando à medida que novas figuras 

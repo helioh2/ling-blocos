@@ -13,8 +13,18 @@ import java.util.List;
  * @author Lenovo
  */
 public class Palco {
+        
+     Desenhador desenhador;   
     
+     
+     
     private List<Ator> atores = new LinkedList();
+
+    public Palco(Desenhador desenhador) {
+        this.desenhador = desenhador;
+    }
+    
+    
     
     public void selecionarAtor(int x, int y) {
         System.out.println(x +" " +y);
@@ -22,6 +32,7 @@ public class Palco {
 
     public void inserirAtor(Ator ator) {
         atores.add(ator);
+        ator.setDesenhador(desenhador);
         desenhar();
     }
 
@@ -29,6 +40,7 @@ public class Palco {
         for (Ator a: atores) {
             a.desenhar();
         }
+        System.out.println(atores);
     }
     
 }

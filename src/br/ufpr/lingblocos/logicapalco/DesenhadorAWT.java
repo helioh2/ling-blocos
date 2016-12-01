@@ -5,12 +5,16 @@
  */
 package br.ufpr.lingblocos.logicapalco;
 
+import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
+
 
 public class DesenhadorAWT implements Desenhador{
 
-    @Override
-    public void desenhaElipse() {
+    TelaDesenho telaDesenho;
         
+    @Override
+    public void desenhaElipse(int x, int y, int largura, int altura) {
+        telaDesenho.desenhaElipse(x, y, largura, altura);
     }
 
     @Override

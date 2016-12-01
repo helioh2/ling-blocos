@@ -36,7 +36,8 @@ public class MainPalco {
        //TelaDesenhoController telaController = new TelaDesenhoController(telaDesenho);
        JanelaPrincipal janela = new JanelaPrincipal(telaDesenho, 
                telaBlocos, 800, 600);
-       Palco palco = new Palco();
+       Desenhador desenhador = new DesenhadorAWT();
+       Palco palco = new Palco(desenhador);
        MouseAdapterSeleciona seleciona = new MouseAdapterSeleciona(telaDesenho, palco);
        //Adicionando relação de opções de figuras com mouse listeners:
        // (vocês terão que ir adicionando à medida que novas figuras 

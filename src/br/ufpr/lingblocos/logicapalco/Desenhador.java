@@ -8,7 +8,7 @@ package br.ufpr.lingblocos.logicapalco;
 
 public interface Desenhador {
     
-    public void desenhaElipse();
+    void desenhaElipse(int x, int y, int largura, int altura);
     
     public void desenhaEstrela();
     

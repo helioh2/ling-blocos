@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,8 +27,8 @@ public abstract class BlocoEnvolvedor extends BlocoInvolucro {
     
     protected JButton cabecalho;
 
-    public BlocoEnvolvedor(TelaBlocos tela, String label, Color cor) {
-        super(tela);
+    public BlocoEnvolvedor(TelaBlocos tela, String label, Color cor, Bloco blocoLogica) {
+        super(tela, blocoLogica);
                 
         cabecalho = new JButton(label);
         //campos = new ArrayList<>();

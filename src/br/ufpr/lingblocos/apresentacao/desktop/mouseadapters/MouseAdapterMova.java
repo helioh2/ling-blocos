@@ -7,6 +7,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.mouseadapters;
 
 import br.ufpr.lingblocos.apresentacao.desktop.blocos.swing.BlocoMova;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import java.awt.event.MouseEvent;
 
 /**
@@ -23,14 +24,17 @@ public class MouseAdapterMova extends MouseAdapterBlocos {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+
+        Bloco  blocoLogico = new br.ufpr.lingblocos.logicablocos.BlocoMova();
+
         
-        painel.inserirBloco(new br.ufpr.lingblocos.logicablocos.BlocoMova());
+        painel.inserirBloco(blocoLogico);
         
        
         //AQUI É ONDE VOCÊS DEVEM FAZER A LÓGICA SER CHAMADA,
         //ANTES DE DESENHAR NA TELA
         
-        tela.addBloco(new BlocoMova(tela), e.getX(), e.getY());
+        tela.addBloco(new BlocoMova(tela,blocoLogico), e.getX(), e.getY());
     }
     
 }

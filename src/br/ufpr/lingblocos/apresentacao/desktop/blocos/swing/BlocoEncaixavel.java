@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -29,7 +30,7 @@ public abstract class BlocoEncaixavel<T> implements BlocoArrastavel<JButton>,Enc
     private BlocoArrastavel pai = null;
     private TelaBlocos tela;
     
-    public BlocoEncaixavel(TelaBlocos tela, String label, Color cor) {
+    public BlocoEncaixavel(TelaBlocos tela, String label, Color cor, Bloco blocoLogica) {
         
         this.tela = tela;
         bloco = new JButton();

@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.mouseadapters;
 
 import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
+import br.ufpr.lingblocos.logicapalco.Elipse;
 import br.ufpr.lingblocos.logicapalco.Palco;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -27,7 +28,8 @@ public class MouseAdapterElipse extends MouseAdapterFigura {
             pressed = false;          
             //AQUI É ONDE VOCÊS DEVEM FAZER A LÓGICA SER CHAMADA,
             //ANTES DE DESENHAR NA TELA
-            tela.desenhaElipse(x, y, e.getX() - x, e.getY() - y);
+            palco.inserirAtor(new Elipse(x, y, e.getX() - x, e.getY() - y));
+            //tela.desenhaElipse(x, y, e.getX() - x, e.getY() - y);
         }}
     
 }

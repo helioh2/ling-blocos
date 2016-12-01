@@ -12,14 +12,18 @@ package br.ufpr.lingblocos.logicapalco;
 public class Elipse extends Ator{
 
     private Desenhador desenhador;
+    int largura;
+    int altura;
             
-    public Elipse(int x, int y) {
+    public Elipse(int x, int y, int largura, int altura) {
         super(x, y);
+        this.largura = largura;
+        this.altura = altura;
     }
 
     @Override
     public void desenhar() {
-        desenhador.desenhaElipse();
+        desenhador.desenhaElipse(x,y,largura,altura);
     }
 
     @Override

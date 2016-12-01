@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.DoubleTransformer;
 import br.ufpr.lingblocos.util.IntegerTransformer;
 import java.awt.Color;
@@ -25,8 +26,8 @@ public class BlocoRepita extends BlocoEnvolvedor implements BlocoComCampos{
     private Campos campos = new Campos(this);
    
     
-    public BlocoRepita(TelaBlocos tela) {
-        super(tela,"Repita", Color.YELLOW);
+    public BlocoRepita(TelaBlocos tela, Bloco blocoLogica) {
+        super(tela,"Repita", Color.YELLOW, blocoLogica);
         addCampos();
         
     }

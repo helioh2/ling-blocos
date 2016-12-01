@@ -25,7 +25,7 @@ public class MouseAdapterSoma extends MouseAdapterBlocos {
         
         //AQUI É ONDE VOCÊS DEVEM FAZER A LÓGICA SER CHAMADA,
         //ANTES DE DESENHAR NA TELA
-        tela.addBloco(new BlocoSoma(tela), e.getX(), e.getY());
+        tela.addBloco(new BlocoSoma(tela, new br.ufpr.lingblocos.logicablocos.BlocoMova()), e.getX(), e.getY());
     }
     
 }

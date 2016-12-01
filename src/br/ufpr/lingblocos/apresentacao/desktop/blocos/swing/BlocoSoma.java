@@ -6,6 +6,7 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.DoubleTransformer;
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -19,8 +20,8 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
     
     private Campos campos = new Campos(this);
 
-    public BlocoSoma(TelaBlocos tela) {
-        super(tela,"+", Color.CYAN);
+    public BlocoSoma(TelaBlocos tela, Bloco blocoLogica) {
+        super(tela,"+", Color.CYAN, blocoLogica);
         addCampos();
         
     }
@@ -65,6 +66,11 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
     @Override
     public void trocaCampo(Encaixavel antigo, Encaixavel novo) {
         campos.trocaCampo(antigo, novo);
+    }
+
+    @Override
+    public Bloco getBlocoLogica() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

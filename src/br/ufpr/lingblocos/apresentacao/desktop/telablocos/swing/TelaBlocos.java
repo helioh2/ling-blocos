@@ -10,6 +10,7 @@ import br.ufpr.lingblocos.apresentacao.desktop.blocos.swing.BlocoArrastavel;
 import br.ufpr.lingblocos.apresentacao.desktop.blocos.swing.BlocoInvolucro;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterBlocos;
 import br.ufpr.lingblocos.apresentacao.desktop.principal.JanelaPrincipal;
+import br.ufpr.lingblocos.logicablocos.BlocoEspere;
 import br.ufpr.lingblocos.logicablocos.Painel;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
@@ -23,7 +24,7 @@ import java.util.Iterator;
  *
  * @author Helio
  */
-public class TelaBlocos implements Observer<MouseAdapterBlocos>{
+public class TelaBlocos implements Observer<MouseAdapterBlocos> {
 
     private JPanel tela;
     private List<BlocoArrastavel> blocos = new ArrayList<>();
@@ -43,31 +44,30 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos>{
         tela.add(bloco.getBloco());
         bloco.getBloco().setLocation(x, y);
     }
-    
-    public BlocoInvolucro embrulha(BlocoArrastavel bloco){
+
+    public BlocoInvolucro embrulha(BlocoArrastavel bloco) {
         int index = blocos.indexOf(bloco);
         tela.remove(bloco.getBloco());
-        BlocoInvolucro blocoNovo = new BlocoInvolucro(this,bloco);
+        BlocoInvolucro blocoNovo = new BlocoInvolucro(this, new BlocoEspere()); //RESOLVER!!
         blocos.set(index, blocoNovo);
         tela.add(blocoNovo.getBloco());
         tela.repaint();
-        
+
         //painel.encaixar
-        
         return blocoNovo;
     }
-    
-        public void trocaPainel(BlocoArrastavel bloco, BlocoInvolucro bloco2) {
+
+    public void trocaPainel(BlocoArrastavel bloco, BlocoInvolucro bloco2) {
         Iterator<BlocoArrastavel> it = bloco.iterator();
         this.getTela().remove(bloco.getBloco());
         blocos.remove(bloco);
         while (it.hasNext()) {
             bloco2.addBloco(it.next());
         }
-        painel.juntarBlocos();
+        //painel.juntarBlocos();
     }
-    
-    public BlocoArrastavel desembrulha(BlocoInvolucro bloco){
+
+    public BlocoArrastavel desembrulha(BlocoInvolucro bloco) {
         int index = blocos.indexOf(bloco);
         tela.remove(bloco.getBloco());
         BlocoArrastavel blocoNovo = bloco.iterator().next();
