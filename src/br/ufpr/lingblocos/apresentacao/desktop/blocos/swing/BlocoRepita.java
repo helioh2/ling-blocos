@@ -36,7 +36,7 @@ public class BlocoRepita extends BlocoEnvolvedor implements BlocoComCampos{
      public void addCampos() {
         BlocoCaixaTexto<Integer> caixa = new BlocoCaixaTexto("vezes", "100", new IntegerTransformer());
         campos.addOriginal(caixa);
-        caixa.setBounds(70*22, 10, 20, 20);
+        caixa.setBounds(70, 10, 20, 20);
      }
 
     @Override

@@ -28,12 +28,8 @@ public class MouseAdapterMova extends MouseAdapterBlocos {
         Bloco  blocoLogico = new br.ufpr.lingblocos.logicablocos.BlocoMova();
 
         
-        painel.inserirBloco(blocoLogico);
-        
-       
-        //AQUI É ONDE VOCÊS DEVEM FAZER A LÓGICA SER CHAMADA,
-        //ANTES DE DESENHAR NA TELA
-        
+        getPainel().inserirBloco(blocoLogico);
+
         tela.addBloco(new BlocoMova(tela,blocoLogico), e.getX(), e.getY());
     }
     

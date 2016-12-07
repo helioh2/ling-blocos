@@ -13,6 +13,7 @@ public abstract class Ator {
     protected int x;
     protected int y;
     protected Desenhador desenhador;
+    protected Palco palco;
 
     public Ator(int x, int y) {
         this.x = x;
@@ -25,6 +26,17 @@ public abstract class Ator {
     public void setDesenhador(Desenhador desenhador) {
         this.desenhador = desenhador;
     }
+
+    public void mover(Integer dx, Integer dy) {
+        // TODO... Façam o que tem que ser feito antes de mandar redesenhar.
+        palco.desenhar();
+    }
+
+    public void setPalco(Palco palco) {
+        this.palco = palco;
+    }
+    
+    
     
     
 }

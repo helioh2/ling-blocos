@@ -10,6 +10,7 @@ import br.ufpr.lingblocos.apresentacao.desktop.blocos.swing.BlocoArrastavel;
 import br.ufpr.lingblocos.apresentacao.desktop.blocos.swing.BlocoInvolucro;
 import br.ufpr.lingblocos.apresentacao.desktop.mouseadapters.MouseAdapterBlocos;
 import br.ufpr.lingblocos.apresentacao.desktop.principal.JanelaPrincipal;
+import br.ufpr.lingblocos.logicablocos.BlocoComposto;
 import br.ufpr.lingblocos.logicablocos.BlocoEspere;
 import br.ufpr.lingblocos.logicablocos.Painel;
 import java.awt.SystemColor;
@@ -30,6 +31,7 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos> {
     private List<BlocoArrastavel> blocos = new ArrayList<>();
     private JanelaPrincipal pai;
     private MouseAdapter mouseAdapter;
+    private Painel painel;
 
     public TelaBlocos(int largura, int altura) {
         tela = new JPanel();
@@ -48,12 +50,12 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos> {
     public BlocoInvolucro embrulha(BlocoArrastavel bloco) {
         int index = blocos.indexOf(bloco);
         tela.remove(bloco.getBloco());
-        BlocoInvolucro blocoNovo = new BlocoInvolucro(this, new BlocoEspere()); //RESOLVER!!
+        BlocoComposto blocoComposto = painel.criaComposto(bloco.getBlocoLogica());
+        BlocoInvolucro blocoNovo = new BlocoInvolucro(this, bloco, blocoComposto);
         blocos.set(index, blocoNovo);
         tela.add(blocoNovo.getBloco());
         tela.repaint();
 
-        //painel.encaixar
         return blocoNovo;
     }
 
@@ -64,7 +66,7 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos> {
         while (it.hasNext()) {
             bloco2.addBloco(it.next());
         }
-        //painel.juntarBlocos();
+        painel.juntarBlocos(bloco2.getBlocoLogica(),bloco.getBlocoLogica());
     }
 
     public BlocoArrastavel desembrulha(BlocoInvolucro bloco) {
@@ -107,4 +109,14 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos> {
         return blocos;
     }
 
+    public void setPainel(Painel painel) {
+        this.painel = painel;
+    }
+
+    public Painel getPainel() {
+        return painel;
+    }
+
+    
+    
 }

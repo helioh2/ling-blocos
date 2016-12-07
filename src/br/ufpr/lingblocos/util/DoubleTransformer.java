@@ -13,7 +13,11 @@ public class DoubleTransformer implements Transformer<String, Double> {
 
     @Override
     public Double transform(String input) {
-        return Double.valueOf(input);
+        try {
+            return Double.valueOf(input);
+        } catch (NumberFormatException e){
+            return 0.0;
+        }    
     }
     
 }

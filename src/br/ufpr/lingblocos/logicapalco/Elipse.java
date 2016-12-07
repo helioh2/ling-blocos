@@ -11,7 +11,6 @@ package br.ufpr.lingblocos.logicapalco;
  */
 public class Elipse extends Ator{
 
-    private Desenhador desenhador;
     int largura;
     int altura;
             

@@ -9,6 +9,23 @@ package br.ufpr.lingblocos.logicablocos;
  *
  * @author helio
  */
-public class Campo extends BlocoEncaixavel {
+public class Campo<T> {
+
+    private T valor;
+
+    public Campo(T valor) {
+        this.valor = valor;
+    
+    }
+    
+    
+    public T getValor(){
+        return valor;
+    }
+
+    public void setValor(T valor) {
+        this.valor = valor;
+    }
+    
     
 }

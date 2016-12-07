@@ -9,6 +9,11 @@ import br.ufpr.lingblocos.util.Transformer;
 import java.awt.Point;
 import java.awt.PopupMenu;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 
@@ -16,26 +21,31 @@ import javax.swing.JTextField;
  *
  * @author helio
  */
-public class BlocoCaixaTexto<T> implements Encaixavel<JTextField,T>{
-    
-    
+public class BlocoCaixaTexto<T> implements Encaixavel<JTextField, T> {
+
     private JTextField caixa;
     private Transformer<String, T> transformer;
     private BlocoArrastavel pai;
-    
+
     public BlocoCaixaTexto(String label, String init, Transformer<String, T> transformer) {
         caixa = new JTextField(init);
         caixa.setName(label);
-        
-    }
-    
-    public T getValor(){
-        String valorStr = caixa.getText();
-        return transformer.transform(valorStr);
-                
+        caixa.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                pai.getBlocoLogica().atualizaCampo(caixa.getName(), getValor());
+
+            }
+        });
+        this.transformer = transformer;
+
     }
 
-    
+    public T getValor() {
+        String valorStr = caixa.getText();
+        return transformer.transform(valorStr);
+
+    }
 
     public JTextField getCaixa() {
         return caixa;
@@ -44,7 +54,7 @@ public class BlocoCaixaTexto<T> implements Encaixavel<JTextField,T>{
     public void setBounds(int i, int i0, int i1, int i2) {
         setBounds(new Rectangle(i, i0, i1, i2));
     }
-    
+
     @Override
     public Rectangle getBounds() {
         return caixa.getBounds();
@@ -70,6 +80,4 @@ public class BlocoCaixaTexto<T> implements Encaixavel<JTextField,T>{
         return caixa;
     }
 
- 
-    
 }

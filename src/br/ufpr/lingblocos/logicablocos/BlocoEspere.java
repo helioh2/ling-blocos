@@ -5,15 +5,27 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
+
 /**
  *
  * @author helio
  */
 public class BlocoEspere extends BlocoSimples{
 
+    public BlocoEspere(){
+        campos.put("t",new Campo<>(0.0));
+    }
+
+    
+    
     @Override
     public void executar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Thread.sleep((long) campos.get("t").getValor()*1000);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
     }
     
 }

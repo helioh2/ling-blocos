@@ -23,6 +23,7 @@ public class MouseAdapterGire extends MouseAdapterBlocos {
     @Override
     public void mouseClicked(MouseEvent e) {
         Bloco blocoLogico = new br.ufpr.lingblocos.logicablocos.BlocoGire();
+        getPainel().inserirBloco(blocoLogico);
         tela.addBloco(new BlocoGire(tela,blocoLogico), e.getX(), e.getY());
     }
     

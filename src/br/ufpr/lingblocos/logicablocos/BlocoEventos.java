@@ -5,6 +5,7 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
 import br.ufpr.lingblocos.logicapalco.Ponto;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class BlocoEventos extends BlocoExecutavel{
     
     private List<Campo> campos;
+
 
     @Override
     public void executar() {

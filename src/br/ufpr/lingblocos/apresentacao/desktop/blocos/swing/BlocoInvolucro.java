@@ -7,6 +7,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import br.ufpr.lingblocos.logicablocos.Bloco;
+import br.ufpr.lingblocos.logicablocos.BlocoComposto;
 import br.ufpr.lingblocos.util.WrapLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -45,7 +46,7 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
         return blocoLogica;
     }
     
-    public BlocoInvolucro(TelaBlocos tela, BlocoArrastavel bloco, Bloco blocoLogica) {
+    public BlocoInvolucro(TelaBlocos tela, BlocoArrastavel bloco, BlocoComposto blocoLogica) {
         this(tela, blocoLogica);
         involucro.setBounds(bloco.getBloco().getX(),
                 bloco.getBloco().getY(),

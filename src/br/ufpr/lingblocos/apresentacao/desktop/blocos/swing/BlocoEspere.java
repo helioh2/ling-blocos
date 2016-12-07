@@ -29,7 +29,7 @@ public class BlocoEspere extends BlocoSimples implements BlocoComCampos{
 
     @Override
     public void addCampos() {
-        BlocoCaixaTexto<Double> caixa = new BlocoCaixaTexto("tempo", "0", new DoubleTransformer());
+        BlocoCaixaTexto<Double> caixa = new BlocoCaixaTexto("t", "0", new DoubleTransformer());
         campos.addOriginal(caixa);
         caixa.setBounds(70, 10, 20, 20);
     }

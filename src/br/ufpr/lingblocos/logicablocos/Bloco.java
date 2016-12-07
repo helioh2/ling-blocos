@@ -5,12 +5,17 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
+
 /**
  *
  * @author helio
  */
 public interface Bloco {
     
+    void setAtor(Ator ator);
     
+    void atualizaCampo(String nome, Object valor);
+            
     
 }

@@ -32,11 +32,13 @@ public class Palco {
 
     public void inserirAtor(Ator ator) {
         atores.add(ator);
+        ator.setPalco(this);
         ator.setDesenhador(desenhador);
         desenhar();
     }
 
-    private void desenhar() {
+    public void desenhar() {
+        desenhador.limpaTela();
         for (Ator a: atores) {
             a.desenhar();
         }

@@ -6,14 +6,19 @@
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.BlocoExecutavel;
 import java.awt.Component;
+import java.awt.MouseInfo;
 import java.awt.event.MouseEvent;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 
 /**
  * Para permitir que blocos "grudem" quando movidos um sobre o outro.
+ *
  * @author helio
  */
 public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
@@ -33,8 +38,8 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
     public void mouseReleased(MouseEvent e) {
         super.mouseDragged(e);
         for (BlocoArrastavel p : blocos) {
-            if (p.getBloco() == bloco.getBloco() 
-                    || bloco.getPai() != null  //isto impede, por segurança, que blocos dentro de um nível possam ser adicionados a outros. Deveria ser encontrada uma maneira para que isto não desse problema.
+            if (p.getBloco() == bloco.getBloco()
+                    || bloco.getPai() != null //isto impede, por segurança, que blocos dentro de um nível possam ser adicionados a outros. Deveria ser encontrada uma maneira para que isto não desse problema.
                     || p.getPai() != null
                     || p == bloco.getPai()) {
                 continue;
@@ -49,21 +54,20 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
         }
 
         if (bloco.saindo()) {
-            removerDoPainel(bloco, (BlocoInvolucro) bloco.getPai());           
+            removerDoPainel(bloco, (BlocoInvolucro) bloco.getPai());
         }
         //tela.getTela().repaint();
 
     }
 
-
     private void removerDoPainel(BlocoArrastavel bloco, BlocoInvolucro pai) {
         pai.remove(bloco);
         tela.getTela().add(bloco.getBloco());
-        
+
         if (pai.getBlocos().size() == 1) {
             //tela.getTela().remove(pai.getBloco());
             tela.desembrulha(pai);
-        } 
+        }
 
     }
 
@@ -85,6 +89,14 @@ public class ArrastavelGrudavelAdapter extends ArrastavelAdapter {
         return colisaoBaixo && colisaoCima && colisaoDireita && colisaoEsquerda;
     }
 
-
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if (e.getButton() == MouseEvent.BUTTON3) {
+            if (bloco.getBlocoLogica() instanceof BlocoExecutavel) {
+                BlocoExecutavel blocoLogica = (BlocoExecutavel) bloco.getBlocoLogica();
+                blocoLogica.executar();
+            }
+        }
+    }
 
 }

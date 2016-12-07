@@ -5,11 +5,33 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class BlocoEncaixavel implements Bloco{
+public abstract class BlocoEncaixavel<T> extends Campo<T> implements Bloco  {
     
-    protected List<BlocoExecutavel> blocoExe;
+    Ator ator;
+    protected Map<String,Campo> campos = new HashMap<String, Campo>();
+
+    public BlocoEncaixavel(T valor) {
+        super(valor);
+    }
+
+    @Override
+    public void setAtor(Ator ator) {
+        this.ator = ator;
+    }
+
+    @Override
+    public void atualizaCampo(String nome, Object valor) {
+        campos.get(nome).setValor(valor);
+    }
+
+    
+    
+    
     
     
 }

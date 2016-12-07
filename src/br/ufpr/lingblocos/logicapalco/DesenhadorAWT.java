@@ -11,6 +11,12 @@ import br.ufpr.lingblocos.apresentacao.desktop.teladesenho.TelaDesenho;
 public class DesenhadorAWT implements Desenhador{
 
     TelaDesenho telaDesenho;
+
+    public DesenhadorAWT(TelaDesenho telaDesenho) {
+        this.telaDesenho = telaDesenho;
+    }
+    
+    
         
     @Override
     public void desenhaElipse(int x, int y, int largura, int altura) {
@@ -50,6 +56,11 @@ public class DesenhadorAWT implements Desenhador{
     @Override
     public void desenhaTriangulo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void limpaTela() {
+        telaDesenho.limpaTela();
     }
     
     

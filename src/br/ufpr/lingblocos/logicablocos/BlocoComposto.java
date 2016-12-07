@@ -5,16 +5,22 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class BlocoComposto extends BlocoExecutavel {
     
-    protected List<BlocoExecutavel> blocoExe;
+    protected List<BlocoExecutavel> blocoExe = new ArrayList<>();
 
     @Override
     public void executar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //TODO
+    }
+
+    public void inserirBloco(Bloco blocoLogica) {
+        blocoExe.add((BlocoExecutavel) blocoLogica);
     }
     
 }

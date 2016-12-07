@@ -13,7 +13,11 @@ public class IntegerTransformer implements Transformer<String, Integer> {
 
     @Override
     public Integer transform(String input) {
-        return Integer.valueOf(input);
+        try {
+            return Integer.valueOf(input);
+        } catch (NumberFormatException e){
+            return 0;
+        }    
     }
     
 }

@@ -23,6 +23,7 @@ public class MouseAdapterEspere extends MouseAdapterBlocos {
     @Override
     public void mouseClicked(MouseEvent e) {
         Bloco blocoLogico = new br.ufpr.lingblocos.logicablocos.BlocoEspere();
+        getPainel().inserirBloco(blocoLogico);
         tela.addBloco(new BlocoEspere(tela, blocoLogico), e.getX(), e.getY());
     }
     

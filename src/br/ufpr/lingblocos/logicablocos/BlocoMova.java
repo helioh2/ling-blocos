@@ -5,15 +5,27 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
+
 /**
  *
  * @author helio
  */
 public class BlocoMova extends BlocoSimples{
 
+    public BlocoMova(){
+        campos.put("dx",new Campo<>(0));
+        campos.put("dy",new Campo<>(0));
+    }
+
+    
+    
     @Override
     public void executar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //TODO, alguma coisa( com ...( Integer) campos.get("dx").getValor(),
+        //        (Integer) campos.get("dy").getValor());
     }
+    
+    
     
 }

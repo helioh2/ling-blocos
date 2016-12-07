@@ -8,6 +8,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.DoubleTransformer;
+import br.ufpr.lingblocos.util.IntegerTransformer;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -33,9 +34,13 @@ public class BlocoMova extends BlocoSimples implements BlocoComCampos{
     
      @Override
     public void addCampos() {
-        BlocoCaixaTexto<Double> caixa = new BlocoCaixaTexto("passos", "0", new DoubleTransformer());      
+        BlocoCaixaTexto<Integer> caixa = new BlocoCaixaTexto("dx", "0", new IntegerTransformer());      
         campos.addOriginal(caixa);
-        caixa.setBounds(70, 10, 20, 20);
+        caixa.setBounds(50, 10, 20, 20);
+        
+        BlocoCaixaTexto<Integer> caixa2 = new BlocoCaixaTexto("dy", "0", new IntegerTransformer());      
+        campos.addOriginal(caixa2);
+        caixa2.setBounds(80, 10, 20, 20);
 
     }
 

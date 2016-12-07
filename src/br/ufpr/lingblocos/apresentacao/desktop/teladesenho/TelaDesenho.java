@@ -43,9 +43,8 @@ public class TelaDesenho implements Observer<MouseAdapterFigura>{
                 altura);
         imagemAtual = new BufferedImage(largura, 
                 altura, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g = imagemAtual.createGraphics();
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0,largura, altura);
+        
+        limpaTela();
     }
 
     public void setPai(JanelaPrincipal pai) {
@@ -96,7 +95,7 @@ public class TelaDesenho implements Observer<MouseAdapterFigura>{
         Graphics2D g = imagemAtual.createGraphics();
         g.setColor(Color.BLACK);
         g.drawOval(x, y, largura, altura);
-        tela.repaint();
+        tela.paintImmediately(0, 0, tela.getWidth(), tela.getHeight());
     }
 
     public int getHeight() {
@@ -111,8 +110,17 @@ public class TelaDesenho implements Observer<MouseAdapterFigura>{
         Graphics2D g = imagemAtual.createGraphics();
         g.setColor(Color.BLACK);
         g.drawString("TRIANGULO", x, y);
-        tela.repaint();
+        tela.paintImmediately(0, 0, tela.getWidth(), tela.getHeight());
+        
 
+    }
+    
+    public final void limpaTela(){
+        imagemAtual.flush();
+        Graphics2D g = imagemAtual.createGraphics();        
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0,tela.getWidth(), tela.getHeight());
+        tela.paintImmediately(0, 0, tela.getWidth(), tela.getHeight());
     }
 }
     

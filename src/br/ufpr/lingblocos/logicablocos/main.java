@@ -24,6 +24,7 @@ import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
 import br.ufpr.lingblocos.logicapalco.Ator;
 import br.ufpr.lingblocos.logicapalco.Desenhador;
 import br.ufpr.lingblocos.logicapalco.DesenhadorAWT;
+import br.ufpr.lingblocos.logicapalco.Elipse;
 import br.ufpr.lingblocos.logicapalco.Palco;
 import java.awt.event.MouseAdapter;
 import java.util.HashMap;
@@ -44,24 +45,28 @@ public class main {
        //TelaDesenhoController telaController = new TelaDesenhoController(telaDesenho);
        JanelaPrincipal janela = new JanelaPrincipal(telaDesenho, 
                telaBlocos, 800, 600);
-        Ator ator = new Ator(10,10){
-           @Override
-           public void desenhar() {
-               System.out.println(".desenhar"+ x + " " + y );
-                       
-           }
-
-           @Override
-           public void dentro(int x, int y) {
-               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-           }
-            
-        };
+//        Ator ator = new Ator(10,10){
+//           @Override
+//           public void desenhar() {
+//               System.out.println(".desenhar"+ x + " " + y );
+//                       
+//           }
+//
+//           @Override
+//           public void dentro(int x, int y) {
+//               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//           }
+//            
+//        };
+        Desenhador desenhador = new DesenhadorAWT(telaDesenho);
+        Palco palco = new Palco(desenhador);
+        Ator ator = new Elipse(100, 100, 200, 300);
+        palco.inserirAtor(ator);
         Painel painel = new Painel(ator);
         painel.inserirBloco(new BlocoMova());
-                Desenhador desenhador = new DesenhadorAWT();
-        Palco palco = new Palco(desenhador);
-       
+        
+        
+        telaBlocos.setPainel(painel);
        //Adicionando relação de opções de figuras com mouse listeners:
        // (vocês terão que ir adicionando à medida que novas figuras 
        // são possíveis de serem desenhadas)

@@ -23,6 +23,8 @@ public interface Desenhador {
     public void desenhaRetangulo();
     
     public void desenhaTriangulo();
+
+    public void limpaTela();
     
     
     

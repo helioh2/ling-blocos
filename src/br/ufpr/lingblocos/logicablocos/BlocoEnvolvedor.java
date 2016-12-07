@@ -5,19 +5,15 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
 import java.util.List;
 
 /**
  *
  * @author helio
  */
-public class BlocoEnvolvedor extends BlocoExecutavel {
+public abstract class BlocoEnvolvedor extends BlocoComposto {
     
-    protected List<BlocoExecutavel> blocoExe;
-
-    @Override
-    public void executar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
 }

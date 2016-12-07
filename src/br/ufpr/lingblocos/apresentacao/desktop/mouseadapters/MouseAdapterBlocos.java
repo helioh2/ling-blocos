@@ -18,17 +18,15 @@ import java.awt.event.MouseEvent;
 public abstract class MouseAdapterBlocos extends MouseAdapter {
     
     protected TelaBlocos tela;
-    protected Painel painel;
 
     public MouseAdapterBlocos(TelaBlocos telaBlocos) {
         this.tela = telaBlocos;
     }
 
     
-    public void setPainel(Painel painel) {
-        this.painel = painel;
+    public Painel getPainel(){
+        return tela.getPainel();
     }
-    
     
 
     @Override

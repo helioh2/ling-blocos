@@ -7,6 +7,7 @@ package br.ufpr.lingblocos.apresentacao.desktop.mouseadapters;
 
 import br.ufpr.lingblocos.apresentacao.desktop.blocos.swing.BlocoRepita;
 import br.ufpr.lingblocos.apresentacao.desktop.telablocos.swing.TelaBlocos;
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.logicablocos.BlocoGire;
 import java.awt.event.MouseEvent;
 
@@ -22,7 +23,9 @@ public class MouseAdapterRepita extends MouseAdapterBlocos {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        tela.addBloco(new BlocoRepita(tela, new BlocoGire()), e.getX(), e.getY());
+        Bloco blocoLogico = new br.ufpr.lingblocos.logicablocos.BlocoRepita();
+        getPainel().inserirBloco(blocoLogico);
+        tela.addBloco(new BlocoRepita(tela, blocoLogico), e.getX(), e.getY());
     }
     
 }

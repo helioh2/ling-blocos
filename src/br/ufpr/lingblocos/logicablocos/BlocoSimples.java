@@ -5,7 +5,11 @@
  */
 package br.ufpr.lingblocos.logicablocos;
 
+import br.ufpr.lingblocos.logicapalco.Ator;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -13,11 +17,8 @@ import java.util.List;
  */
 public abstract class BlocoSimples extends BlocoExecutavel {
     
-    protected List<Campo> campos;
-   
+  
 
-    public BlocoSimples() {
-    }
 
     
 }
