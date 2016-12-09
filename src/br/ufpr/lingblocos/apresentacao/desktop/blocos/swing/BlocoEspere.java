@@ -35,8 +35,8 @@ public class BlocoEspere extends BlocoSimples implements BlocoComCampos{
     }
 
      @Override
-    public Iterator<Encaixavel> getCampos() {
-        return campos.getCampos();
+    public Iterator<Encaixavel> getCamposIterator() {
+        return campos.getCamposIterator();
     }
 
     @Override
@@ -47,6 +47,11 @@ public class BlocoEspere extends BlocoSimples implements BlocoComCampos{
     @Override
     public void trocaCampo(Encaixavel antigo, Encaixavel novo) {
         campos.trocaCampo(antigo, novo);
+        this.getBlocoLogica().trocaCampo("t",novo.getBlocoLogica());
+    }
+
+    public Campos getCampos() {
+        return campos;
     }
 
     

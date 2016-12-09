@@ -50,8 +50,10 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos> {
     public BlocoInvolucro embrulha(BlocoArrastavel bloco) {
         int index = blocos.indexOf(bloco);
         tela.remove(bloco.getBloco());
+        //AMARRAÇÃO COM A LÓGICA:
         BlocoComposto blocoComposto = painel.criaComposto(bloco.getBlocoLogica());
         BlocoInvolucro blocoNovo = new BlocoInvolucro(this, bloco, blocoComposto);
+        //
         blocos.set(index, blocoNovo);
         tela.add(blocoNovo.getBloco());
         tela.repaint();
@@ -66,7 +68,21 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos> {
         while (it.hasNext()) {
             bloco2.addBloco(it.next());
         }
+        //AMARRAÇÃO COM A LÓGICA:
         painel.juntarBlocos(bloco2.getBlocoLogica(),bloco.getBlocoLogica());
+    }
+    
+     public void removerDoPainel(BlocoArrastavel bloco, BlocoInvolucro pai) {
+        pai.remove(bloco);
+        tela.add(bloco.getBloco());
+
+        if (pai.getBlocos().size() == 1) {
+            //tela.getTela().remove(pai.getBloco());
+            this.desembrulha(pai);
+        }
+        //AMARRAÇÃO COM A LÓGICA:
+        painel.desencaixar(bloco.getBlocoLogica(), pai.getBlocoLogica());
+
     }
 
     public BlocoArrastavel desembrulha(BlocoInvolucro bloco) {
@@ -79,6 +95,10 @@ public class TelaBlocos implements Observer<MouseAdapterBlocos> {
         blocoNovo.getBloco().setLocation(bloco.getBloco().getLocation());
         bloco.setPai(null);
         tela.repaint();
+        
+        //AMARRAÇÃO COM A LÓGICA:
+        painel.desfazerComposto(bloco.getBlocoLogica());
+        //
         return blocoNovo;
     }
 

@@ -5,6 +5,7 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import java.util.Iterator;
 
 /**
@@ -13,9 +14,15 @@ import java.util.Iterator;
  */
 public interface BlocoComCampos {
     
+    
     void addCampos();
     void trocaCampo(Encaixavel antigo, Encaixavel novo);
+    
     void removeCampo(Encaixavel campo);
 
-    public Iterator<Encaixavel> getCampos();
+    public Iterator<Encaixavel> getCamposIterator();
+    
+    Campos getCampos();
+    
+    Bloco getBlocoLogica();
 }

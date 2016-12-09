@@ -5,6 +5,7 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -40,6 +41,9 @@ public class Campos implements BlocoComCampos {
         novo.getBloco().setLocation(
                 antigo.getBloco().getX(),
                 antigo.getBloco().getY());
+        
+        //AMARRAÇÃO COM A LOGICA:
+        pai.getBlocoLogica().trocaCampo(antigo.getName(), novo.getBlocoLogica());
     }
 
     @Override
@@ -57,10 +61,12 @@ public class Campos implements BlocoComCampos {
                 pai.getWidth(),                
                 pai.getHeight()-campo.getBloco().getHeight()+antigo.getBloco().getHeight());
         
+        //AMARRAÇÃO COM A LOGICA:
+        pai.getBlocoLogica().resetaCampo(campo.getName());
     }
 
     @Override
-    public Iterator<Encaixavel> getCampos() {
+    public Iterator<Encaixavel> getCamposIterator() {
         return campos.iterator();
     }
 
@@ -71,5 +77,19 @@ public class Campos implements BlocoComCampos {
         campo.setPai(pai);
 
     }
+
+    public Campos getCampos() {
+        return this;
+    }
+
+    @Override
+    public Bloco getBlocoLogica() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+   
+    
+    
     
 }

@@ -30,5 +30,11 @@ public abstract class BlocoExecutavel implements Bloco{
         campos.get(nome).setValor(valor);
     }
 
+   @Override
+    public Map<String, Campo> getCampos() {
+        return campos;
+    }
+
+    
    
 }

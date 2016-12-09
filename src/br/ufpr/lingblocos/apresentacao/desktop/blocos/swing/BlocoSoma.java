@@ -54,8 +54,8 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
     
 
     @Override
-    public Iterator<Encaixavel> getCampos() {
-        return campos.getCampos();
+    public Iterator<Encaixavel> getCamposIterator() {
+        return campos.getCamposIterator();
     }
     
     @Override
@@ -74,7 +74,9 @@ public class BlocoSoma extends BlocoEncaixavel<Double> implements BlocoComCampos
     }
     
     
-    
+    public Campos getCampos() {
+        return campos;
+    }    
     
 
  

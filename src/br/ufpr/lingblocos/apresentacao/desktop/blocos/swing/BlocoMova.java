@@ -56,8 +56,12 @@ public class BlocoMova extends BlocoSimples implements BlocoComCampos{
     }
     
      @Override
-    public Iterator<Encaixavel> getCampos() {
-        return campos.getCampos();
+    public Iterator<Encaixavel> getCamposIterator() {
+        return campos.getCamposIterator();
+    }
+    
+    public Campos getCampos() {
+        return campos;
     }
     
     

@@ -61,7 +61,7 @@ public class ArrastavelEncaixavelAdapter extends ArrastavelAdapter {
         if (p instanceof BlocoComCampos){
             BlocoComCampos b = (BlocoComCampos) p;
 
-            Iterator<Encaixavel> it = b.getCampos();
+            Iterator<Encaixavel> it = b.getCamposIterator();
             while (it.hasNext()){      
                 Encaixavel atual = it.next();
                 if (sobrepondo(bloco,atual)){

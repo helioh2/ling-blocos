@@ -57,6 +57,30 @@ public class Painel {
         return blocoComposto;
         
     }
+
+    /**
+     * Exclui o bloco composto e retira blocos restantes de dentro dele.
+     * Chamada do desembrulha() do TelaBlocos
+     * @param blocoLogica (deve ser um bloco composto)
+     */
+    public void desfazerComposto(Bloco blocoLogica) {
+        BlocoComposto blocoComposto = (BlocoComposto) blocoLogica;
+      
+        //TODO... Façam o resto
+    
+    }
+
+    /**
+     * retira um bloco de um bloco composto
+     * Chamada no método removerDoPainel do TelaBlocos
+     * @param blocoLogica
+     * @param blocoLogica0 (deve ser um bloco composto)
+     */
+    public void desencaixar(Bloco blocoLogica, Bloco blocoLogica0) {
+        BlocoComposto blocoComposto = (BlocoComposto) blocoLogica0;
+        
+        //TODO... Façam o resto
+    }
     
     
 }

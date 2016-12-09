@@ -5,6 +5,7 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import java.awt.Point;
 import java.awt.Rectangle;
 import javax.swing.JComponent;
@@ -27,6 +28,9 @@ interface Encaixavel<T extends JComponent,V> {
     
     T getBloco();
     
+    String getName();
+    
+    
     default Point getLocationTela(){
         if (getPai() == null){
             return getBloco().getLocation();
@@ -38,5 +42,5 @@ interface Encaixavel<T extends JComponent,V> {
         }
     }
 
-
+    Bloco getBlocoLogica();
 }

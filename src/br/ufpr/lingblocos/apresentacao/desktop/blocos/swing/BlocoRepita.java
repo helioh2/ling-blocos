@@ -49,7 +49,11 @@ public class BlocoRepita extends BlocoEnvolvedor implements BlocoComCampos{
         campos.trocaCampo(antigo, novo);
     }
      @Override
-    public Iterator<Encaixavel> getCampos() {
-        return campos.getCampos();
+    public Iterator<Encaixavel> getCamposIterator() {
+        return campos.getCamposIterator();
+    }
+    
+    public Campos getCampos() {
+        return campos;
     }
 }

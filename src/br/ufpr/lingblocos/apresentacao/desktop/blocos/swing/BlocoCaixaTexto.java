@@ -5,6 +5,7 @@
  */
 package br.ufpr.lingblocos.apresentacao.desktop.blocos.swing;
 
+import br.ufpr.lingblocos.logicablocos.Bloco;
 import br.ufpr.lingblocos.util.Transformer;
 import java.awt.Point;
 import java.awt.PopupMenu;
@@ -26,6 +27,7 @@ public class BlocoCaixaTexto<T> implements Encaixavel<JTextField, T> {
     private JTextField caixa;
     private Transformer<String, T> transformer;
     private BlocoArrastavel pai;
+    private String name;
 
     public BlocoCaixaTexto(String label, String init, Transformer<String, T> transformer) {
         caixa = new JTextField(init);
@@ -38,9 +40,18 @@ public class BlocoCaixaTexto<T> implements Encaixavel<JTextField, T> {
             }
         });
         this.transformer = transformer;
+        this.name = label;
 
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+    
+    
+
+    @Override
     public T getValor() {
         String valorStr = caixa.getText();
         return transformer.transform(valorStr);
@@ -78,6 +89,11 @@ public class BlocoCaixaTexto<T> implements Encaixavel<JTextField, T> {
     @Override
     public JTextField getBloco() {
         return caixa;
+    }
+
+    @Override
+    public Bloco getBlocoLogica() {
+        return pai.getBlocoLogica();
     }
 
 }

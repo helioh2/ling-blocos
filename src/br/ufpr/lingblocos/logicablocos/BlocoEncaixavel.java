@@ -29,6 +29,13 @@ public abstract class BlocoEncaixavel<T> extends Campo<T> implements Bloco  {
         campos.get(nome).setValor(valor);
     }
 
+    @Override
+    public Map<String, Campo> getCampos() {
+        return campos;
+    }
+    
+    
+
     
     
     
