@@ -33,7 +33,14 @@ public class BlocoInvolucro implements BlocoArrastavel<JPanel> {
     
     public BlocoInvolucro(TelaBlocos tela, Bloco blocoLogica) {
 
-        involucro = new JPanel(null);
+        involucro = new JPanel(null){
+            @Override
+            public boolean isOptimizedDrawingEnabled() {
+                return false;
+            }
+            
+            
+        };
         //involucro.setOpaque(false);
         involucro.setBackground(Color.darkGray);
         blocos = new ArrayList<>();
